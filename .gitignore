@@ -24,3 +24,12 @@ hs_err_pid*
 
 # docx
 *.docx
+
+# IDE specific files
+.idea/
+.settings/
+bin/
+out/
+.classpath
+.project
+*.iml
