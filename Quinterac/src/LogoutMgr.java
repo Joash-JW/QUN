@@ -1,3 +1,5 @@
+import exceptions.NotLoggedInException;
+
 public class LogoutMgr {
     public static void logout() {
         try {
