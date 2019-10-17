@@ -18,4 +18,8 @@ public class ValidAccListMgr {
         } catch (FileNotFoundException e) { System.out.println(e); }
         catch (IOException e) { System.out.println(e); }
     }
+
+    public static boolean checkAccNumExist(String input) {
+        return validAccList.contains(input);
+    }
 }

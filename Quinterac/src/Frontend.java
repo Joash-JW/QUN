@@ -9,6 +9,7 @@ public class Frontend {
             switch (transactionCode) {
                 case "login": LoginMgr.login(accList); break;
                 case "logout": LogoutMgr.logout(); break;
+
                 default: System.out.println("Please enter a valid transaction code."); break;
             }
         }
