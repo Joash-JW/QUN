@@ -10,7 +10,9 @@ public class Frontend {
                 case "login": LoginMgr.login(accList); break;
                 case "logout": LogoutMgr.logout(); break;
                 case "deposit": DepositMgr.deposit(); break;
-
+                case "withdraw": WithdrawMgr.withdraw(); break;
+                case "transfer": TransferMgr.transfer(); break;
+                
                 default: System.out.println("Please enter a valid transaction code."); break;
             }
         }
