@@ -41,7 +41,7 @@ public class AccountMgr {
 	
 	public static boolean checkDailyWithdrawLimit(String accountNumber) {
 		int i = checkAccountExistsInList(accountNumber);
-		int dailyWithdraw = dailyAccountList.get(i).getDailyDeposit();
+		int dailyWithdraw = dailyAccountList.get(i).getDailyWithdraw();
 		
 		if (dailyWithdraw <= 500000) {
 			return true;
@@ -58,7 +58,7 @@ public class AccountMgr {
 	
 	public static boolean checkDailyTransferLimit(String accountNumber) {
 		int i = checkAccountExistsInList(accountNumber);
-		int dailyTransfer = dailyAccountList.get(i).getDailyDeposit();
+		int dailyTransfer = dailyAccountList.get(i).getDailyTransfer();
 		
 		if (dailyTransfer <= 1000000) {
 			return true;
