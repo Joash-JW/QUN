@@ -19,6 +19,7 @@ public class WithdrawMgr {
 		} catch (NotLoggedInException e) {
 			System.out.println(e.getMessage());
 		}
+		
 	}
 
 	public static void atmCheckWithdrawValid() {
@@ -74,6 +75,6 @@ public class WithdrawMgr {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+		
 	}
 }

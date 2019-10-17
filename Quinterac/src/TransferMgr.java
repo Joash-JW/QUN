@@ -19,6 +19,7 @@ public class TransferMgr {
 		} catch (NotLoggedInException e) {
 			System.out.println(e.getMessage());
 		}
+		
 	}
 
 	public static void atmCheckTransferValid() {
