@@ -4,6 +4,10 @@ import java.io.*;
 public class TransactionFileMgr {
 	private static ArrayList <TransactionHistory> transactionList = new ArrayList<TransactionHistory> ();
 	
+	public static void resetTransactionList() {
+		transactionList.clear();
+	}
+	
 	//add deposit transaction into transaction summary file
 	public static void addDepTransaction (String accountNumber, String amount) {
 		TransactionHistory t = new TransactionHistory();
