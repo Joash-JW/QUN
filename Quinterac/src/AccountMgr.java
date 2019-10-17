@@ -1,29 +1,27 @@
 import java.util.*;
 
 public class AccountMgr {
-	private static ArrayList <Account> dailyAccountList = new ArrayList<Account> ();
+	private static Map<String, Account> dailyAccountMap = new HashMap<String, Account>();
 	
 	public static void resetDailyAccountList() {
-		dailyAccountList.clear();
+		dailyAccountMap.clear();
 	}
 	
-	public static int checkAccountExistsInList(String accountNumber) {
-		for (int i = 0; i < dailyAccountList.size(); i++) {
-			if (dailyAccountList.get(i).getAccountNumber().equals(accountNumber)) {
-				return i;
-			}
+	public static void checkAccountExistsInList(String accountNumber) {
+		if (dailyAccountMap.containsKey(accountNumber)){
+			return;
 		}
-		addAccountToList(accountNumber);
-		return dailyAccountList.size() - 1;
+		else 
+			addAccountToList(accountNumber);
 	}
 	
 	public static void addAccountToList(String accountNumber) {
-		dailyAccountList.add(new Account(accountNumber));
+		dailyAccountMap.put(accountNumber, new Account(accountNumber));
 	}
 	
-	public static boolean checkDailyDepositLimit(String accountNumber) {
-		int i = checkAccountExistsInList(accountNumber);
-		int dailyDeposit = dailyAccountList.get(i).getDailyDeposit();
+	public static boolean checkDailyDepositLimit(String accountNumber, int value) {
+		checkAccountExistsInList(accountNumber);
+		int dailyDeposit = dailyAccountMap.get(accountNumber).getDailyDeposit() + value;
 		
 		if (dailyDeposit <= 500000) {
 			return true;
@@ -34,14 +32,14 @@ public class AccountMgr {
 	}
 	
 	public static void performDailyDeposit (int value, String accountNumber) {
-		int i = checkAccountExistsInList(accountNumber);
-		dailyAccountList.get(i).increaseDailyDeposit(value);
+		checkAccountExistsInList(accountNumber);
+		dailyAccountMap.get(accountNumber).increaseDailyDeposit(value);
 		System.out.println("Deposit successful!");
 	}
 	
-	public static boolean checkDailyWithdrawLimit(String accountNumber) {
-		int i = checkAccountExistsInList(accountNumber);
-		int dailyWithdraw = dailyAccountList.get(i).getDailyWithdraw();
+	public static boolean checkDailyWithdrawLimit(String accountNumber, int value) {
+		checkAccountExistsInList(accountNumber);
+		int dailyWithdraw = dailyAccountMap.get(accountNumber).getDailyWithdraw() + value;
 		
 		if (dailyWithdraw <= 500000) {
 			return true;
@@ -52,13 +50,13 @@ public class AccountMgr {
 	}
 	
 	public static void performDailyWithdraw (int value, String accountNumber) {
-		int i = checkAccountExistsInList(accountNumber);
-		dailyAccountList.get(i).increaseDailyWithdraw(value);
+		checkAccountExistsInList(accountNumber);
+		dailyAccountMap.get(accountNumber).increaseDailyWithdraw(value);
 	}
 	
-	public static boolean checkDailyTransferLimit(String accountNumber) {
-		int i = checkAccountExistsInList(accountNumber);
-		int dailyTransfer = dailyAccountList.get(i).getDailyTransfer();
+	public static boolean checkDailyTransferLimit(String accountNumber, int value) {
+		checkAccountExistsInList(accountNumber);
+		int dailyTransfer = dailyAccountMap.get(accountNumber).getDailyTransfer() + value;
 		
 		if (dailyTransfer <= 1000000) {
 			return true;
@@ -69,7 +67,7 @@ public class AccountMgr {
 	}
 	
 	public static void performDailyTransfer (int value, String accountNumber) {
-		int i = checkAccountExistsInList(accountNumber);
-		dailyAccountList.get(i).increaseDailyTransfer(value);
+		checkAccountExistsInList(accountNumber);
+		dailyAccountMap.get(accountNumber).increaseDailyTransfer(value);
 	}
 }
