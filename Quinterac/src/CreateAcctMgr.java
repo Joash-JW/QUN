@@ -39,7 +39,7 @@ public class CreateAcctMgr {
             else if (input.length() != 7) {
             	System.out.println("Account number must be of length 7.");
             }
-            else if (!ValidAccListMgr.checkAccNumExist(input)) {
+            else if (ValidAccListMgr.checkAccNumExist(input)) {
             	System.out.println("Account number already exists.");
             }
             else
