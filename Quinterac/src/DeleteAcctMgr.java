@@ -11,8 +11,15 @@ public class DeleteAcctMgr {
                     System.out.println("Enter account number (7 digits):");
                     Scanner s = new Scanner(System.in);
                     String accNum = s.nextLine();
+                    
+                    if (!ValidAccListMgr.checkAccNumExist(accNum)) {
+        				System.out.println("Please enter a valid account number");
+        				return;
+        			}
+                    
                     System.out.println("Enter account name (3 to 30 alphanumeric characters):");
                     String accName =  s.nextLine();
+                    ValidAccListMgr.removeAccNum(accNum);
                     TransactionFileMgr.addDelTransaction(accNum, accName);
                     System.out.println("Account has been deleted. Please logout.");
                     while (true) {

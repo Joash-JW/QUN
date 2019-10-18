@@ -22,4 +22,8 @@ public class ValidAccListMgr {
     public static void addAccNum(String accNum) {
         validAccList.put(accNum, null); return;
     }
+    
+    public static void removeAccNum(String accNum) {
+    	validAccList.remove(accNum);
+    }
 }

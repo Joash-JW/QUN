@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.*;
 import exceptions.*;
 
 public class CreateAcctMgr {
@@ -31,9 +32,19 @@ public class CreateAcctMgr {
         while (true) {
             Scanner s = new Scanner(System.in);
             input = s.nextLine();
-            if(input.length()==7 && !ValidAccListMgr.checkAccNumExist(input)) {
-                return input;
+            
+            if (input.charAt(0) == '0') {
+            	System.out.println("Account number cannot begin with 0.");
             }
+            else if (input.length() != 7) {
+            	System.out.println("Account number must be of length 7.");
+            }
+            else if (!ValidAccListMgr.checkAccNumExist(input)) {
+            	System.out.println("Account number already exists.");
+            }
+            else
+            	return input;
+            
             System.out.println("Please enter it again.");
         }
     }
@@ -43,9 +54,22 @@ public class CreateAcctMgr {
         while (true) {
             Scanner s = new Scanner(System.in);
             input = s.nextLine();
-            if(input.length()>=3 && input.length()<=30) {
-                return input;
+            
+            if (!input.matches("[a-zA-Z0-9]+")) {
+            	System.out.println("Please enter alphanumeric characters.");
             }
+            else if (input.length() < 3 || input.length() > 30) {
+            	System.out.println("Please enter account name between 3 and 30 characters.");
+            }
+            else if (input.charAt(0) == (' ')) {
+            	System.out.println("Account name cannot begin with a space.");
+            }
+            else if (input.charAt(input.length() - 1) == (' ')) {
+            	System.out.println("Account name cannot end with a space.");
+            }
+            else
+            	return input;
+            
             System.out.println("Please enter it again.");
         }
     }
