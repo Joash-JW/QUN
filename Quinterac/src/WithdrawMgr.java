@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import exceptions.NotLoggedInException;
 
 public class WithdrawMgr {
 	private static String modeName;

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import exceptions.NotLoggedInException;
 
 public class TransferMgr {
 	private static String modeName;

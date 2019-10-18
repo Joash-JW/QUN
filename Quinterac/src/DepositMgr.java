@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import exceptions.NotLoggedInException;
 
 public class DepositMgr {
 	private static String modeName;

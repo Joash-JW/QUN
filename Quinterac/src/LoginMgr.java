@@ -18,7 +18,7 @@ public class LoginMgr {
             System.out.println("Enter type of Session (machine or agent):");
             while (true) {
                 Scanner s = new Scanner(System.in);
-                String input = s.nextLine();
+                String input = s.nextLine().trim();
                 if (input.equals("machine") || input.equals("agent")) {
                     mode = input;
                     System.out.println("You have logged in.");
