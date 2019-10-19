@@ -61,6 +61,7 @@ public class AccMgr {
 	public static void performDailyWithdraw (int value, String accNum) {
 		checkAccExistsInMap(accNum);
 		dailyAccMap.get(accNum).increaseDailyWithdraw(value);
+		System.out.println("Withdraw successful!");
 	}
 	
 	//checks dailyTransferLimit for a particular account
@@ -80,5 +81,6 @@ public class AccMgr {
 	public static void performDailyTransfer (int value, String accNum) {
 		checkAccExistsInMap(accNum);
 		dailyAccMap.get(accNum).increaseDailyTransfer(value);
+		System.out.println("Transfer successful!");
 	}
 }
