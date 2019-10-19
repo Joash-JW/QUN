@@ -1,15 +1,22 @@
+//the objective of this class is to manage login operations and exceptions
+
 import java.util.Scanner;
 
 public class LoginMgr {
     private static boolean loggedIn = false;
     private static String mode = null;
 
+    // checks if user is logged in
     public static boolean isLoggedIn() {
         return loggedIn;
     }
+    
+    //checks the current mode (machine or agent)
     public static String checkMode(){
         return mode;
     }
+    
+    // method to perform login operation
     public static void login(String accList) {
         if(loggedIn) { System.out.println("You are already logged in."); }
         else {
@@ -31,5 +38,7 @@ public class LoginMgr {
         }
         return;
     }
+    
+    //sets loggedIn to false and mode to null
     public static void resetLogin() { loggedIn = false; mode = null;}
 }

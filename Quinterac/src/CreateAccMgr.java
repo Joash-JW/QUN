@@ -1,8 +1,10 @@
+//the objective of this class is to handles create account operations and exceptions
+
 import java.util.Scanner;
-import java.util.regex.*;
 import exceptions.*;
 
 public class CreateAccMgr {
+	//method to perform create account operations
     public static void createacct() {
         try {
             if (LoginMgr.isLoggedIn()) {
@@ -29,6 +31,7 @@ public class CreateAccMgr {
         catch (InvalidModeException e) { System.out.println(e.getMessage()); }
     }
 
+    //checks the validity of the account number
     public static String checkAccNum() {
         String input;
         while (true) {
@@ -51,6 +54,7 @@ public class CreateAccMgr {
         }
     }
 
+    //checks the validity of the account name
     public static String checkAccName() {
         String input;
         while (true) {

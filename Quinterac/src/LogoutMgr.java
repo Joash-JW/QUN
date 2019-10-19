@@ -1,6 +1,9 @@
+//the objective of this class is to manage logout operations and transactions
+
 import exceptions.NotLoggedInException;
 
 public class LogoutMgr {
+	//method to perform logout operation
     public static void logout(String transactionSummaryFile) {
         try {
             if (LoginMgr.isLoggedIn()) {
