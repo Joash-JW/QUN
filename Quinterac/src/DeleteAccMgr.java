@@ -1,4 +1,4 @@
-//the objective of this class is to handles delete account operations and exceptions
+//the objective of this class is to manage delete account operations and exceptions
 
 import exceptions.InvalidModeException;
 import exceptions.NotLoggedInException;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class DeleteAccMgr {
 	//method to perform delete account operations
-    public static void deleteacct() {
+    public static void deleteacc() {
         try {
             if (LoginMgr.isLoggedIn()) {
                 if (LoginMgr.checkMode().equals("agent")) {

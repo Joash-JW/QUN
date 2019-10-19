@@ -15,8 +15,8 @@ public class Frontend {
                 case "deposit": DepositMgr.deposit(); break;
                 case "withdraw": WithdrawMgr.withdraw(); break;
                 case "transfer": TransferMgr.transfer(); break;
-                case "createacct": CreateAccMgr.createacct(); break;
-                case "deleteacct": DeleteAccMgr.deleteacct(); break;
+                case "createacct": CreateAccMgr.createacc(); break;
+                case "deleteacct": DeleteAccMgr.deleteacc(); break;
                 default: System.out.println("Please enter a valid transaction code."); break;
             }
         }

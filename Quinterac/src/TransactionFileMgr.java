@@ -62,7 +62,7 @@ public class TransactionFileMgr {
 		transactionList.add(t);
 	}
 	
-	//writes arraylist to transaction summary file
+	//write arraylist to transaction summary file
 	public static void writeToTransactionFile(String transactionSummaryFile) {
 		try {
 			PrintWriter out = new PrintWriter(new FileWriter(transactionSummaryFile));

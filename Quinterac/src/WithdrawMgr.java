@@ -1,11 +1,9 @@
-//the objective of this class is to manage all the withdraw transactions
+//the objective of this class is to manage all withdraw operations and exceptions
 
 import java.util.Scanner;
 import exceptions.NotLoggedInException;
 
 public class WithdrawMgr {
-	private static String modeName;
-
 	//method to perform withdraw operation
 	public static void withdraw() {
 		try {
@@ -25,7 +23,7 @@ public class WithdrawMgr {
 			System.out.println("Enter the amount of money to withdraw in cents:");
 			int amount = s.nextInt();
 			
-			modeName = LoginMgr.checkMode();
+			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
 				atmCheckWithdrawValid(accNum, amount);
 			} else if (modeName.equals("agent")) {

@@ -1,11 +1,11 @@
-//the objective of this class is to handles create account operations and exceptions
+//the objective of this class is to manage create account operations and exceptions
 
 import java.util.Scanner;
 import exceptions.*;
 
 public class CreateAccMgr {
 	//method to perform create account operations
-    public static void createacct() {
+    public static void createacc() {
         try {
             if (LoginMgr.isLoggedIn()) {
                 if (LoginMgr.checkMode().equals("agent")) {
@@ -13,7 +13,10 @@ public class CreateAccMgr {
                     String accNum = checkAccNum(); //to be changed
                     System.out.println("Enter new account name (3 to 30 alphanumeric characters):");
                     String accName = checkAccName();
-                    ValidAccListMgr.addAccNum(accNum);
+                    
+                    //not needed
+                    //ValidAccListMgr.addAccNum(accNum);
+                    
                     TransactionFileMgr.addNewTransaction(accNum, accName);
                     System.out.println("Account has been created. Please logout.");
                     

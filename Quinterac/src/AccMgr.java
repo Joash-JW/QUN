@@ -5,7 +5,7 @@ import java.util.*;
 public class AccMgr {
 	private static Map<String, Acc> dailyAccMap = new HashMap<String, Acc>();
 	
-	//clears the hashmap of accounts
+	//clears the hashMap of accounts
 	public static void resetDailyAccMap() {
 		dailyAccMap.clear();
 	}

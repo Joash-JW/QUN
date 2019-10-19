@@ -1,11 +1,9 @@
-//the objective of this class is to manage all the deposit transactions
+//the objective of this class is to manage all deposit operations and exceptions
 
 import java.util.Scanner;
 import exceptions.NotLoggedInException;
 
 public class DepositMgr {
-	private static String modeName;
-
 	//method to perform deposit operation
 	public static void deposit() {
 		try {
@@ -25,7 +23,7 @@ public class DepositMgr {
 			System.out.println("Enter the amount of money to deposit in cents:");
 			int amount = s.nextInt();
 			
-			modeName = LoginMgr.checkMode();
+			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
 				atmCheckDepositValid(accNum, amount);
 			} else if (modeName.equals("agent")) {

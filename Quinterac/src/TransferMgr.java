@@ -1,11 +1,9 @@
-//the objective of this class is to manage all the transfer transactions
+//the objective of this class is to manage all transfer operations and exceptions
 
 import java.util.Scanner;
 import exceptions.NotLoggedInException;
 
 public class TransferMgr {
-	private static String modeName;
-
 	//method to perform transfer operation
 	public static void transfer() {
 		try {
@@ -33,7 +31,7 @@ public class TransferMgr {
 			System.out.println("Enter the amount of money to transfer in cents:");
 			int amount = s.nextInt();
 			
-			modeName = LoginMgr.checkMode();
+			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
 				atmCheckTransferValid(accNum, amount, accNumB);
 			} else if (modeName.equals("agent")) {

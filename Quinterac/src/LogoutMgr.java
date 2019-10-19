@@ -1,4 +1,4 @@
-//the objective of this class is to manage logout operations and transactions
+//the objective of this class is to manage logout operations and exceptions
 
 import exceptions.NotLoggedInException;
 
