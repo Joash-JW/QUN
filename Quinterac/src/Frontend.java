@@ -8,7 +8,7 @@ public class Frontend {
             String transactionCode = s.nextLine().trim();
             switch (transactionCode) {
                 case "login": LoginMgr.login(accList); break;
-                case "logout": LogoutMgr.logout(); break;
+                case "logout": LogoutMgr.logout(transactionSummaryFile); break;
                 case "deposit": DepositMgr.deposit(); break;
                 case "withdraw": WithdrawMgr.withdraw(); break;
                 case "transfer": TransferMgr.transfer(); break;

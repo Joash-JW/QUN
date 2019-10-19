@@ -22,11 +22,13 @@ public class DeleteAcctMgr {
                     ValidAccListMgr.removeAccNum(accNum);
                     TransactionFileMgr.addDelTransaction(accNum, accName);
                     System.out.println("Account has been deleted. Please logout.");
-                    while (true) {
+                    
+                    //not a system requirement - can remove
+                    //while (true) {
                         //Scanner s = new Scanner(System.in);
-                        if (s.nextLine().trim().equals("logout")) { LogoutMgr.logout(); return; }
-                        System.out.println("Please logout.");
-                    }
+                        //if (s.nextLine().trim().equals("logout")) { LogoutMgr.logout(); return; }
+                        //System.out.println("Please logout.");
+                    //}
                 }
                 else throw new InvalidModeException();
             }

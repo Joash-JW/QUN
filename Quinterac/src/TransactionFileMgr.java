@@ -60,9 +60,9 @@ public class TransactionFileMgr {
 	}
 	
 	//writes arraylist to transaction summary file
-	public static void writeToTransactionFile() {
+	public static void writeToTransactionFile(String transactionSummaryFile) {
 		try {
-			PrintWriter out = new PrintWriter(new FileWriter("TransactionSummaryFile.txt"));
+			PrintWriter out = new PrintWriter(new FileWriter(transactionSummaryFile));
 			
 			for (int i = 0; i < transactionList.size(); i++) {
 				TransactionHistory t = transactionList.get(i);

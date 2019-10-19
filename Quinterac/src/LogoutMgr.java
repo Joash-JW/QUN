@@ -1,11 +1,11 @@
 import exceptions.NotLoggedInException;
 
 public class LogoutMgr {
-    public static void logout() {
+    public static void logout(String transactionSummaryFile) {
         try {
             if (LoginMgr.isLoggedIn()) {
                 LoginMgr.resetLogin();
-                TransactionFileMgr.writeToTransactionFile();
+                TransactionFileMgr.writeToTransactionFile(transactionSummaryFile);
                 System.out.println("You have logged out.");
             }
             else throw new NotLoggedInException();
