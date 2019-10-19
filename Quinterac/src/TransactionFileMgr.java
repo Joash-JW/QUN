@@ -1,3 +1,5 @@
+//the objective of this class is to manage all the transactions performed in the day
+
 import java.util.*;
 import java.io.*;
 
@@ -10,52 +12,52 @@ public class TransactionFileMgr {
 	}
 	
 	//add deposit transaction into transaction summary file
-	public static void addDepTransaction (String accountNumber, String amount) {
+	public static void addDepTransaction (String accNum, String amount) {
 		TransactionHistory t = new TransactionHistory();
 		t.setTransactionCode("DEP");
-		t.setFirstAccountNumber(accountNumber);
+		t.setFirstAccNum(accNum);
 		t.setAmount(amount);
 		
 		transactionList.add(t);
 	}
 	
 	//add withdraw transaction into transaction summary file
-	public static void addWdrTransaction (String accountNumber, String amount) {
+	public static void addWdrTransaction (String accNum, String amount) {
 		TransactionHistory t = new TransactionHistory();
 		t.setTransactionCode("WDR");
-		t.setFirstAccountNumber(accountNumber);
+		t.setFirstAccNum(accNum);
 		t.setAmount(amount);
 		
 		transactionList.add(t);
 	}
 	
 	//add transfer transaction into transaction summary file
-	public static void addXfrTransaction (String firstAccountNumber, String amount, String secondAccountNumber) {
+	public static void addXfrTransaction (String firstAccNum, String amount, String secondAccNum) {
 		TransactionHistory t = new TransactionHistory();
 		t.setTransactionCode("XFR");
-		t.setFirstAccountNumber(firstAccountNumber);
+		t.setFirstAccNum(firstAccNum);
 		t.setAmount(amount);
-		t.setSecondAccountNumber(secondAccountNumber);
+		t.setSecondAccNum(secondAccNum);
 		
 		transactionList.add(t);
 	}
 	
 	//add create account transaction into transaction summary file
-	public static void addNewTransaction (String accountNumber, String accountName) {
+	public static void addNewTransaction (String accNum, String accName) {
 		TransactionHistory t = new TransactionHistory();
 		t.setTransactionCode("NEW");
-		t.setFirstAccountNumber(accountNumber);
-		t.setAccountName(accountName);
+		t.setFirstAccNum(accNum);
+		t.setAccName(accName);
 		
 		transactionList.add(t);
 	}
 	
 	//add delete account transaction into transaction summary file
-	public static void addDelTransaction (String accountNumber, String accountName) {
+	public static void addDelTransaction (String accNum, String accName) {
 		TransactionHistory t = new TransactionHistory();
 		t.setTransactionCode("DEL");
-		t.setFirstAccountNumber(accountNumber);
-		t.setAccountName(accountName);
+		t.setFirstAccNum(accNum);
+		t.setAccName(accName);
 		
 		transactionList.add(t);
 	}
@@ -67,9 +69,8 @@ public class TransactionFileMgr {
 			
 			for (int i = 0; i < transactionList.size(); i++) {
 				TransactionHistory t = transactionList.get(i);
-				String toBePrinted = t.getTransactionCode() + " " + t.getFirstAccountNumber() + " " + t.getAmount() + " " 
-				+ t.getSecondAccountNumber() + " " + t.getAccountName();
-				//System.out.println(toBePrinted);
+				String toBePrinted = t.getTransactionCode() + " " + t.getFirstAccNum() + " " + t.getAmount() + " " 
+				+ t.getSecondAccNum() + " " + t.getAccName();
 				out.println(toBePrinted);
 			}
 			out.println("EOS");

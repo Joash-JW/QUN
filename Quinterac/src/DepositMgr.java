@@ -1,45 +1,51 @@
+//the objective of this class is to manage all the deposit transactions
+
 import java.util.Scanner;
 import exceptions.NotLoggedInException;
 
 public class DepositMgr {
 	private static String modeName;
 
+	//method to perform deposit operation
 	public static void deposit() {
 		try {
 			if (!LoginMgr.isLoggedIn()) {
 				throw new NotLoggedInException();
 			}
 
-			modeName = LoginMgr.checkMode();
-			if (modeName.equals("machine")) {
-				atmCheckDepositValid();
-			} else if (modeName.equals("agent")) {
-				agentCheckDepositValid();
-			}
-
-		} catch (NotLoggedInException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public static void atmCheckDepositValid() {
-		try {
-			Scanner sc = new Scanner(System.in);
+			Scanner s = new Scanner(System.in);
 			System.out.println("Enter account number: ");
-			String accountNumber = sc.nextLine();
+			String accNum = s.nextLine();
 
-			if (!ValidAccListMgr.checkAccNumExist(accountNumber)) {
+			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
 				System.out.println("Please enter a valid account number");
 				return;
 			}
 
 			System.out.println("Enter the amount of money to deposit in cents:");
-			int value = sc.nextInt();
+			int amount = s.nextInt();
+			
+			modeName = LoginMgr.checkMode();
+			if (modeName.equals("machine")) {
+				atmCheckDepositValid(accNum, amount);
+			} else if (modeName.equals("agent")) {
+				agentCheckDepositValid(accNum, amount);
+			}
 
-			if (value >= 0 && value <= 200000) {
-				if (AccMgr.checkDailyDepositLimit(accountNumber, value)) {
-					AccMgr.performDailyDeposit(value, accountNumber);
-					TransactionFileMgr.addDepTransaction(accountNumber, Integer.toString(value));
+		} catch (NotLoggedInException e) {
+			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	// method to check if deposit amount is valid in machine mode
+	public static void atmCheckDepositValid(String accNum, int amount) {
+		try {
+			if (amount >= 0 && amount <= 200000) {
+				if (AccMgr.checkDailyDepositLimit(accNum, amount)) {
+					AccMgr.performDailyDeposit(amount, accNum);
+					TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
 				} else {
 					System.out.println("You have exceeded the daily limit");
 				}
@@ -52,23 +58,12 @@ public class DepositMgr {
 
 	}
 
-	public static void agentCheckDepositValid() {
+	//method to check if deposit amount is valid in agent mode
+	public static void agentCheckDepositValid(String accNum, int amount) {
 		try {
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter account number: ");
-			String accountNumber = sc.nextLine();
-
-			if (!ValidAccListMgr.checkAccNumExist(accountNumber)) {
-				System.out.println("Please enter a valid account number");
-				return;
-			}
-
-			System.out.println("Enter the amount of money to deposit in cents:");
-			int value = sc.nextInt();
-
-			if (value >= 0 && value <= 99999999) {
+			if (amount >= 0 && amount <= 99999999) {
 				System.out.println("Deposit successfully:");
-				TransactionFileMgr.addDepTransaction(accountNumber, Integer.toString(value));
+				TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
 			} else {
 				System.out.println("Please enter a number between 0 - 99999999:");
 			}

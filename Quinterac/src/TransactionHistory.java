@@ -1,61 +1,68 @@
+//objective of this class is to store the information of each transaction
+
 public class TransactionHistory {
 	private String transactionCode;
-	private String firstAccountNumber;
+	private String firstAccNum;
 	private String amount;
-	private String secondAccountNumber;
-	private String accountName;
+	private String secondAccNum;
+	private String accName;
 	
 	//constructor for each transaction history
 	public TransactionHistory() {
 		this.transactionCode = null;
-		this.firstAccountNumber = "0000000";
+		this.firstAccNum = "0000000";
 		this.amount = "000";
-		this.secondAccountNumber = "0000000";
-		this.accountName = "***";
+		this.secondAccNum = "0000000";
+		this.accName = "***";
 	}
 	
-	//get and set for transaction code
+	//get transaction code
 	public String getTransactionCode() {
 		return this.transactionCode;
 	}
 	
+	//set transaction code
 	public void setTransactionCode(String s) {
 		this.transactionCode = s;
 	}
 	
-	//get and set for first account number
-	public String getFirstAccountNumber() {
-		return this.firstAccountNumber;
+	//get first account number
+	public String getFirstAccNum() {
+		return this.firstAccNum;
 	}
 	
-	public void setFirstAccountNumber(String s) {
-		this.firstAccountNumber = s;
+	//set first account number
+	public void setFirstAccNum(String s) {
+		this.firstAccNum = s;
 	}
 	
-	//get and set for amount
+	//get amount
 	public String getAmount() {
 		return this.amount;
 	}
 	
+	//set amount
 	public void setAmount(String s) {
 		this.amount = s;
 	}
 	
-	//get and set for second account number
-	public String getSecondAccountNumber() {
-		return this.secondAccountNumber;
+	//get second account number
+	public String getSecondAccNum() {
+		return this.secondAccNum;
 	}
 	
-	public void setSecondAccountNumber(String s) {
-		this.secondAccountNumber = s;
+	//set second account number
+	public void setSecondAccNum(String s) {
+		this.secondAccNum = s;
 	}
 	
-	//get and set for account name
-	public String getAccountName() {
-		return this.accountName;
+	//get account name
+	public String getAccName() {
+		return this.accName;
 	}
 	
-	public void setAccountName(String s) {
-		this.accountName = s;
+	//set account name
+	public void setAccName(String s) {
+		this.accName = s;
 	}
 }

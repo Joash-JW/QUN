@@ -1,46 +1,52 @@
+//the objective of this class is to manage all the withdraw transactions
+
 import java.util.Scanner;
 import exceptions.NotLoggedInException;
 
 public class WithdrawMgr {
 	private static String modeName;
 
+	//method to perform withdraw operation
 	public static void withdraw() {
 		try {
 			if (!LoginMgr.isLoggedIn()) {
 				throw new NotLoggedInException();
 			}
 
-			modeName = LoginMgr.checkMode();
-			if (modeName.equals("machine")) {
-				atmCheckWithdrawValid();
-			} else if (modeName.equals("agent")) {
-				agentCheckWithdrawValid();
-			}
-
-		} catch (NotLoggedInException e) {
-			System.out.println(e.getMessage());
-		}
-		
-	}
-
-	public static void atmCheckWithdrawValid() {
-		try {
-			Scanner sc = new Scanner(System.in);
+			Scanner s = new Scanner(System.in);
 			System.out.println("Enter account number: ");
-			String accountNumber = sc.nextLine();
+			String accNum = s.nextLine();
 
-			if (!ValidAccListMgr.checkAccNumExist(accountNumber)) {
+			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
 				System.out.println("Please enter a valid account number");
 				return;
 			}
 
 			System.out.println("Enter the amount of money to withdraw in cents:");
-			int value = sc.nextInt();
+			int amount = s.nextInt();
+			
+			modeName = LoginMgr.checkMode();
+			if (modeName.equals("machine")) {
+				atmCheckWithdrawValid(accNum, amount);
+			} else if (modeName.equals("agent")) {
+				agentCheckWithdrawValid(accNum, amount);
+			}
 
-			if (value >= 0 && value <= 100000) {
-				if (AccMgr.checkDailyWithdrawLimit(accountNumber, value)) {
-					AccMgr.performDailyWithdraw(value, accountNumber);
-					TransactionFileMgr.addWdrTransaction(accountNumber, Integer.toString(value));
+		} catch (NotLoggedInException e) {
+			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+	//method to check if withdraw amount is valid in machine mode
+	public static void atmCheckWithdrawValid(String accNum, int amount) {
+		try {
+			if (amount >= 0 && amount <= 100000) {
+				if (AccMgr.checkDailyWithdrawLimit(accNum, amount)) {
+					AccMgr.performDailyWithdraw(amount, accNum);
+					TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
 				} else {
 					System.out.println("You have exceeded the daily limit");
 				}
@@ -53,23 +59,12 @@ public class WithdrawMgr {
 
 	}
 
-	public static void agentCheckWithdrawValid() {
+	//method to check if withdraw amount is valid in agent mode
+	public static void agentCheckWithdrawValid(String accNum, int amount) {
 		try {
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter account number: ");
-			String accountNumber = sc.nextLine();
-
-			if (!ValidAccListMgr.checkAccNumExist(accountNumber)) {
-				System.out.println("Please enter a valid account number");
-				return;
-			}
-
-			System.out.println("Enter the amount of money to withdraw in cents:");
-			int value = sc.nextInt();
-
-			if (value >= 0 && value <= 99999999) {
+			if (amount >= 0 && amount <= 99999999) {
 				System.out.println("Withdraw successfully:");
-				TransactionFileMgr.addWdrTransaction(accountNumber, Integer.toString(value));
+				TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
 			} else {
 				System.out.println("Please enter a number between 0 - 99999999:");
 			}
