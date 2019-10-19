@@ -4,6 +4,7 @@ import java.io.*;
 public class TransactionFileMgr {
 	private static ArrayList <TransactionHistory> transactionList = new ArrayList<TransactionHistory> ();
 	
+	//clears the arraylist of transactions
 	public static void resetTransactionList() {
 		transactionList.clear();
 	}

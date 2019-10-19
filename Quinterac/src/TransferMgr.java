@@ -46,8 +46,8 @@ public class TransferMgr {
 			int value = sc.nextInt();
 
 			if (value >= 0 && value <= 1000000) {
-				if (AccountMgr.checkDailyTransferLimit(accountNumber, value)) {
-					AccountMgr.performDailyTransfer(value, accountNumber);
+				if (AccMgr.checkDailyTransferLimit(accountNumber, value)) {
+					AccMgr.performDailyTransfer(value, accountNumber);
 					TransactionFileMgr.addXfrTransaction(accountNumber, Integer.toString(value), accountNumberB);
 				} else {
 					System.out.println("You have exceeded the daily limit");

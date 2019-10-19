@@ -38,8 +38,8 @@ public class WithdrawMgr {
 			int value = sc.nextInt();
 
 			if (value >= 0 && value <= 100000) {
-				if (AccountMgr.checkDailyWithdrawLimit(accountNumber, value)) {
-					AccountMgr.performDailyWithdraw(value, accountNumber);
+				if (AccMgr.checkDailyWithdrawLimit(accountNumber, value)) {
+					AccMgr.performDailyWithdraw(value, accountNumber);
 					TransactionFileMgr.addWdrTransaction(accountNumber, Integer.toString(value));
 				} else {
 					System.out.println("You have exceeded the daily limit");

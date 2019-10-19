@@ -1,6 +1,9 @@
+//objective of this class is to launch frontend program
+
 import java.util.Scanner;
 
 public class Frontend {
+	//method to start frontend program
     public static void mainFrontend(String accList, String transactionSummaryFile) {
         System.out.println("Welcome to Quinterac (Frontend)! To start, please login.");
         while (true){
@@ -12,8 +15,8 @@ public class Frontend {
                 case "deposit": DepositMgr.deposit(); break;
                 case "withdraw": WithdrawMgr.withdraw(); break;
                 case "transfer": TransferMgr.transfer(); break;
-                case "createacct": CreateAcctMgr.createacct(); break;
-                case "deleteacct": DeleteAcctMgr.deleteacct(); break;
+                case "createacct": CreateAccMgr.createacct(); break;
+                case "deleteacct": DeleteAccMgr.deleteacct(); break;
                 default: System.out.println("Please enter a valid transaction code."); break;
             }
         }

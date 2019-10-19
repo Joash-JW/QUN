@@ -3,7 +3,7 @@ import exceptions.NotLoggedInException;
 
 import java.util.Scanner;
 
-public class DeleteAcctMgr {
+public class DeleteAccMgr {
     public static void deleteacct() {
         try {
             if (LoginMgr.isLoggedIn()) {

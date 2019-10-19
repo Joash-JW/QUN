@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.regex.*;
 import exceptions.*;
 
-public class CreateAcctMgr {
+public class CreateAccMgr {
     public static void createacct() {
         try {
             if (LoginMgr.isLoggedIn()) {

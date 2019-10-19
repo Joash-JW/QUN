@@ -37,8 +37,8 @@ public class DepositMgr {
 			int value = sc.nextInt();
 
 			if (value >= 0 && value <= 200000) {
-				if (AccountMgr.checkDailyDepositLimit(accountNumber, value)) {
-					AccountMgr.performDailyDeposit(value, accountNumber);
+				if (AccMgr.checkDailyDepositLimit(accountNumber, value)) {
+					AccMgr.performDailyDeposit(value, accountNumber);
 					TransactionFileMgr.addDepTransaction(accountNumber, Integer.toString(value));
 				} else {
 					System.out.println("You have exceeded the daily limit");
