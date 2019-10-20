@@ -56,16 +56,16 @@ public class CreateAccMgr {
             input = s.nextLine();
             
             if (input.charAt(0) == (' ')) {
-            	System.out.println("Please enter alphanumeric characters.");
-            }
-            else if (input.charAt(input.length() - 1) == (' ')) {
-            	System.out.println("Please enter account name between 3 and 30 characters.");
-            }
-            else if (!input.matches("[a-zA-Z0-9]+")) {
             	System.out.println("Account name cannot begin with a space.");
             }
-            else if (input.length() < 3 || input.length() > 30) {
+            else if (input.charAt(input.length() - 1) == (' ')) {
             	System.out.println("Account name cannot end with a space.");
+            }
+            else if (!input.matches("[a-zA-Z0-9 ]+")) {
+            	System.out.println("Please enter alphanumeric characters.");
+            }
+            else if (input.length() < 3 || input.length() > 30) {
+            	System.out.println("Please enter account name between 3 and 30 characters.");
             }
             else
             	return input;
