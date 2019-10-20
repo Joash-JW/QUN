@@ -1,5 +1,6 @@
 //the objective of this class is to manage create account operations and exceptions
 
+package applogic;
 import java.util.Scanner;
 import exceptions.*;
 

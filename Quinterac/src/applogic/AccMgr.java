@@ -1,6 +1,8 @@
 //objective of this class is to manage the hashMap of accounts which perform transactions in each day
 
+package applogic;
 import java.util.*;
+import data.Acc;
 
 public class AccMgr {
 	private static Map<String, Acc> dailyAccMap = new HashMap<String, Acc>();

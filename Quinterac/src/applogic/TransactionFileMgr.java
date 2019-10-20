@@ -1,7 +1,9 @@
 //the objective of this class is to manage all the transactions performed in the day
 
+package applogic;
 import java.util.*;
 import java.io.*;
+import data.TransactionHistory;
 
 public class TransactionFileMgr {
 	private static ArrayList <TransactionHistory> transactionList = new ArrayList<TransactionHistory> ();

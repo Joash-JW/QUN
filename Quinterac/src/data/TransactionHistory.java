@@ -1,5 +1,7 @@
 //objective of this class is to store the information of each transaction
 
+package data;
+
 public class TransactionHistory {
 	private String transactionCode;
 	private String firstAccNum;

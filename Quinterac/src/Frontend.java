@@ -1,5 +1,6 @@
 //objective of this class is to launch frontend program
 
+import applogic.*;
 import java.util.Scanner;
 
 public class Frontend {

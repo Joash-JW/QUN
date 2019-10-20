@@ -1,5 +1,6 @@
 //the objective of this class is to manage delete account operations and exceptions
 
+package applogic;
 import exceptions.InvalidModeException;
 import exceptions.NotLoggedInException;
 

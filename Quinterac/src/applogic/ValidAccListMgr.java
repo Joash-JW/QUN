@@ -1,5 +1,6 @@
 //the objective of this class is to handle the reading in of the valid accounts list file and check if an account number is valid
 
+package applogic;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -15,7 +16,6 @@ public class ValidAccListMgr {
                 validAccList.put(file.nextLine(), null);
             }
             file.close();
-            //System.out.println(validAccList);
             return;
         } catch (FileNotFoundException e) { System.out.println(e); }
         catch (IOException e) { System.out.println(e); }

@@ -1,5 +1,7 @@
 //objective of this class is to keep track of the daily deposit, withdraw and transfer limits of each account
 
+package data;
+
 public class Acc {
 	private String accNum;
 	private int dailyDeposit;

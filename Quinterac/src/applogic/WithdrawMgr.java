@@ -1,11 +1,12 @@
-//the objective of this class is to manage all deposit operations and exceptions
+//the objective of this class is to manage all withdraw operations and exceptions
 
+package applogic;
 import java.util.Scanner;
 import exceptions.NotLoggedInException;
 
-public class DepositMgr {
-	//method to perform deposit operation
-	public static void deposit() {
+public class WithdrawMgr {
+	//method to perform withdraw operation
+	public static void withdraw() {
 		try {
 			if (!LoginMgr.isLoggedIn()) {
 				throw new NotLoggedInException();
@@ -20,14 +21,14 @@ public class DepositMgr {
 				return;
 			}
 
-			System.out.println("Enter the amount of money to deposit in cents:");
+			System.out.println("Enter the amount of money to withdraw in cents:");
 			int amount = s.nextInt();
 			
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
-				atmCheckDepositValid(accNum, amount);
+				atmCheckWithdrawValid(accNum, amount);
 			} else if (modeName.equals("agent")) {
-				agentCheckDepositValid(accNum, amount);
+				agentCheckWithdrawValid(accNum, amount);
 			}
 
 		} catch (NotLoggedInException e) {
@@ -35,15 +36,16 @@ public class DepositMgr {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
 	}
 
-	// method to check if deposit amount is valid in machine mode
-	public static void atmCheckDepositValid(String accNum, int amount) {
+	//method to check if withdraw amount is valid in machine mode
+	public static void atmCheckWithdrawValid(String accNum, int amount) {
 		try {
-			if (amount >= 0 && amount <= 200000) {
-				if (AccMgr.checkDailyDepositLimit(accNum, amount)) {
-					AccMgr.performDailyDeposit(amount, accNum);
-					TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
+			if (amount >= 0 && amount <= 100000) {
+				if (AccMgr.checkDailyWithdrawLimit(accNum, amount)) {
+					AccMgr.performDailyWithdraw(amount, accNum);
+					TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
 				} else {
 					System.out.println("You have exceeded the daily limit");
 				}
@@ -56,18 +58,18 @@ public class DepositMgr {
 
 	}
 
-	//method to check if deposit amount is valid in agent mode
-	public static void agentCheckDepositValid(String accNum, int amount) {
+	//method to check if withdraw amount is valid in agent mode
+	public static void agentCheckWithdrawValid(String accNum, int amount) {
 		try {
 			if (amount >= 0 && amount <= 99999999) {
-				System.out.println("Deposit successfully:");
-				TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
+				System.out.println("Withdraw successfully:");
+				TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
 			} else {
 				System.out.println("Please enter a number between 0 - 99999999:");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+		
 	}
 }
