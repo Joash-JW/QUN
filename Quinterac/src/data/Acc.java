@@ -17,9 +17,7 @@ public class Acc {
 	}
 	
 	//get account number
-	public String getAccNum() {
-		return this.accNum;
-	}
+	public String getAccNum() { return this.accNum; }
 	
 	//get daily deposit amount
 	public int getDailyDeposit() {

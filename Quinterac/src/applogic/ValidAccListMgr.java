@@ -23,11 +23,6 @@ public class ValidAccListMgr {
 
     //checks if the account number exists in the file
     public static boolean checkAccNumExist(String accNum) { return validAccList.containsKey(accNum); }
-
-    //add account number to hashMap
-    public static void addAccNum(String accNum) {
-        validAccList.put(accNum, null); return;
-    }
     
     //remove account number from hashMap
     public static void removeAccNum(String accNum) {
