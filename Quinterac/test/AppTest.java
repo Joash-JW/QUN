@@ -1,3 +1,16 @@
+import static org.junit.Assert.assertEquals;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.*;
+
 public class AppTest {
 
     @Test
@@ -40,7 +53,7 @@ public class AppTest {
         System.setErr(new PrintStream(errContent));
 
         // run the program
-        App.main(args);
+        Quinterac.main(args);
 
         // capture terminal outputs:
         String[] printed_lines = outContent.toString().split("[\r\n]+");
