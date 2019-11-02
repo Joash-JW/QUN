@@ -75,7 +75,7 @@ public class TransactionFileMgr {
 				+ t.getSecondAccNum() + " " + t.getAccName();
 				out.println(toBePrinted);
 			}
-			out.println("EOS");
+			out.println("EOS 0000000 000 0000000 ***");
 			
 			out.close();
 		} catch (IOException e) {

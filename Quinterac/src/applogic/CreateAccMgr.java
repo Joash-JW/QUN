@@ -29,10 +29,13 @@ public class CreateAccMgr {
     //checks the validity of the account number
     public static String checkAccNum() {
         String input = "";
+
         while (Quinterac.s.hasNextLine()) {
             input = Quinterac.s.nextLine();
-            
-            if (input.charAt(0) == '0') {
+            if (!input.matches("[0-9]+")) {
+            	System.out.println("Account number can only contain digits.");
+            }
+            else if (input.charAt(0) == '0') {
             	System.out.println("Account number cannot begin with 0.");
             }
             else if (input.length() != 7) {
