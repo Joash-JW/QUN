@@ -7,8 +7,9 @@ public class Frontend {
 	//method to start frontend program
     public static void mainFrontend(String accList, String transactionSummaryFile) {
         System.out.println("Welcome to Quinterac (Frontend)! To start, please login.");
-        while (true){
-            Scanner s = new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
+        while (s.hasNextLine()){
+            //Scanner s = new Scanner(System.in);
             String transactionCode = s.nextLine().trim();
             switch (transactionCode) {
                 case "login": LoginMgr.login(accList); break;

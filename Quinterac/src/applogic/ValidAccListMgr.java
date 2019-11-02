@@ -18,7 +18,7 @@ public class ValidAccListMgr {
             file.close();
             return;
         } catch (FileNotFoundException e) { System.out.println(e); }
-        catch (IOException e) { System.out.println(e); }
+        //catch (IOException e) { System.out.println(e); }
     }
 
     //checks if the account number exists in the file

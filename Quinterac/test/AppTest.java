@@ -13,13 +13,29 @@ import org.junit.*;
 
 public class AppTest {
 
-    @Test
+    /*@Test
     public void testAppR1() throws Exception {
         runAndTest(Arrays.asList("login"), //
                 Arrays.asList("123456"), //
                 Arrays.asList("123456", "writing transactions!"), //
                 Arrays.asList("hmm i am a transaction."));
+    }*/
+
+    @Test
+    public void testAppR1T1() throws Exception {
+        runAndTest(Arrays.asList("logout"),
+                Arrays.asList("1234567"),
+                Arrays.asList("Please login first."),
+                Arrays.asList(""));
     }
+
+    /*@Test
+    public void testAppR3T1() throws Exception {
+        runAndTest(Arrays.asList("login", "machine", "createacct"),
+                Arrays.asList("1234567"),
+                Arrays.asList("Please use agent mode."),
+                null);
+    }*/
 
     /**
      * Helper function to run the main function and verify the output
@@ -50,7 +66,7 @@ public class AppTest {
 
         File transaction_summary_file = File.createTempFile("transactions", ".tmp");
 
-        String[] args = { valid_account_list_file.getAbsolutePath(), transaction_summary_file.getAbsolutePath() };
+        String[] args = { "frontend", valid_account_list_file.getAbsolutePath(), transaction_summary_file.getAbsolutePath() };
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
