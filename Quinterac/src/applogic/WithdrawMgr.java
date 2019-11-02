@@ -2,6 +2,7 @@
 
 package applogic;
 import java.util.Scanner;
+import main.Quinterac;
 import exceptions.NotLoggedInException;
 
 public class WithdrawMgr {
@@ -12,9 +13,9 @@ public class WithdrawMgr {
 				throw new NotLoggedInException();
 			}
 
-			Scanner s = new Scanner(System.in);
+			//Scanner s = new Scanner(System.in);
 			System.out.println("Enter account number: ");
-			String accNum = s.nextLine();
+			String accNum = Quinterac.s.nextLine();
 
 			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
 				System.out.println("Please enter a valid account number");
@@ -22,7 +23,7 @@ public class WithdrawMgr {
 			}
 
 			System.out.println("Enter the amount of money to withdraw in cents:");
-			int amount = s.nextInt();
+			int amount = Quinterac.s.nextInt();
 			
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {

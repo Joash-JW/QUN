@@ -3,6 +3,7 @@
 package applogic;
 import java.util.Scanner;
 import exceptions.*;
+import main.Quinterac;
 
 public class CreateAccMgr {
 	//method to perform create account operations
@@ -27,10 +28,9 @@ public class CreateAccMgr {
 
     //checks the validity of the account number
     public static String checkAccNum() {
-        String input;
-        while (true) {
-            Scanner s = new Scanner(System.in);
-            input = s.nextLine();
+        String input = "";
+        while (Quinterac.s.hasNextLine()) {
+            input = Quinterac.s.nextLine();
             
             if (input.charAt(0) == '0') {
             	System.out.println("Account number cannot begin with 0.");
@@ -42,18 +42,19 @@ public class CreateAccMgr {
             	System.out.println("Account number already exists.");
             }
             else
-            	return input;
+            	break;
             
             System.out.println("Please enter it again.");
         }
+        return input;
     }
 
     //checks the validity of the account name
     public static String checkAccName() {
-        String input;
-        while (true) {
-            Scanner s = new Scanner(System.in);
-            input = s.nextLine();
+        String input = "";
+        while (Quinterac.s.hasNextLine()) {
+            //Scanner s = new Scanner(System.in);
+            input = Quinterac.s.nextLine();
             
             if (input.charAt(0) == (' ')) {
             	System.out.println("Account name cannot begin with a space.");
@@ -68,10 +69,11 @@ public class CreateAccMgr {
             	System.out.println("Please enter account name between 3 and 30 characters.");
             }
             else
-            	return input;
+            	break;
             
             System.out.println("Please enter it again.");
         }
+        return input;
     }
 
 }

@@ -2,10 +2,11 @@
 
 package applogic;
 import java.util.Scanner;
+import main.Quinterac;
 
 public class LoginMgr {
     private static boolean loggedIn = false;
-    private static String mode = null;
+    private static String mode = "";
 
     // checks if user is logged in
     public static boolean isLoggedIn() {
@@ -24,9 +25,9 @@ public class LoginMgr {
             loggedIn = true;
             ValidAccListMgr.readValidAccList(accList);
             System.out.println("Enter type of Session (machine or agent):");
-            while (true) {
-                Scanner s = new Scanner(System.in);
-                String input = s.nextLine().trim();
+            //Scanner s = new Scanner(System.in);
+            while (Quinterac.s.hasNextLine()) {
+                String input = Quinterac.s.nextLine().trim();
                 if (input.equals("machine") || input.equals("agent")) {
                     mode = input;
                     System.out.println("You have logged in.");

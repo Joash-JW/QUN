@@ -3,6 +3,7 @@
 package applogic;
 import exceptions.InvalidModeException;
 import exceptions.NotLoggedInException;
+import main.Quinterac;
 
 import java.util.Scanner;
 
@@ -13,8 +14,8 @@ public class DeleteAccMgr {
             if (LoginMgr.isLoggedIn()) {
                 if (LoginMgr.checkMode().equals("agent")) {
                     System.out.println("Enter account number (7 digits):");
-                    Scanner s = new Scanner(System.in);
-                    String accNum = s.nextLine();
+                    //Scanner s = new Scanner(System.in);
+                    String accNum = Quinterac.s.nextLine();
                     
                     if (!ValidAccListMgr.checkAccNumExist(accNum)) {
         				System.out.println("Please enter a valid account number");
@@ -22,7 +23,7 @@ public class DeleteAccMgr {
         			}
                     
                     System.out.println("Enter account name (3 to 30 alphanumeric characters):");
-                    String accName =  s.nextLine();
+                    String accName =  Quinterac.s.nextLine();
                     ValidAccListMgr.removeAccNum(accNum);
                     TransactionFileMgr.addDelTransaction(accNum, accName);
                     System.out.println("Account has been deleted. Please logout.");

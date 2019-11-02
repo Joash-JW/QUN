@@ -1,5 +1,7 @@
 //objective of this class is to launch frontend program
 
+package main;
+
 import applogic.*;
 import java.util.Scanner;
 
@@ -7,10 +9,9 @@ public class Frontend {
 	//method to start frontend program
     public static void mainFrontend(String accList, String transactionSummaryFile) {
         System.out.println("Welcome to Quinterac (Frontend)! To start, please login.");
-        Scanner s = new Scanner(System.in);
-        while (s.hasNextLine()){
+        while (Quinterac.s.hasNextLine()){
             //Scanner s = new Scanner(System.in);
-            String transactionCode = s.nextLine().trim();
+            String transactionCode = Quinterac.s.nextLine().trim();
             switch (transactionCode) {
                 case "login": LoginMgr.login(accList); break;
                 case "logout": LogoutMgr.logout(transactionSummaryFile); break;

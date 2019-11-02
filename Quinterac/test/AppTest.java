@@ -11,6 +11,8 @@ import java.util.List;
 
 import org.junit.*;
 
+import main.Quinterac;
+
 public class AppTest {
 
     /*@Test
@@ -20,14 +22,6 @@ public class AppTest {
                 Arrays.asList("123456", "writing transactions!"), //
                 Arrays.asList("hmm i am a transaction."));
     }*/
-
-    @Test
-    public void testAppR1T1() throws Exception {
-        runAndTest(Arrays.asList("logout"),
-                Arrays.asList("1234567"),
-                Arrays.asList("Please login first."),
-                Arrays.asList(""));
-    }
 
     /*@Test
     public void testAppR3T1() throws Exception {
@@ -54,7 +48,7 @@ public class AppTest {
      * 
      * @throws Exception
      */
-    public void runAndTest(List<String> terminal_input, //
+    public static void runAndTest(List<String> terminal_input, //
             List<String> valid_accounts, //
             List<String> expected_terminal_tails, //
             List<String> expected_transaction_summaries) throws Exception {
@@ -70,7 +64,7 @@ public class AppTest {
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
-        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());        
         System.setIn(in);
 
         // setup stdin & stdout:
