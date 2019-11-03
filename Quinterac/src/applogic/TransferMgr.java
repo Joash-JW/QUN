@@ -15,7 +15,9 @@ public class TransferMgr {
 
 			//Scanner s = new Scanner(System.in);
 			System.out.println("Enter account number: ");
-			String accNum = Quinterac.s.nextLine();
+			String accNum = "";
+			if (Quinterac.s.hasNextLine())
+				accNum = Quinterac.s.nextLine();
 
 			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
 				System.out.println("Please enter a valid account number");
@@ -23,15 +25,19 @@ public class TransferMgr {
 			}
 			
 			System.out.println("Enter account number to accept your transfer: ");
-			String accNumB = Quinterac.s.nextLine();
+			String accNumB = "";
+			if (Quinterac.s.hasNextLine())
+				accNumB = Quinterac.s.nextLine();
 			
 			if (!ValidAccListMgr.checkAccNumExist(accNumB)) {
-				System.out.println("Please enter a valid account number: ");
+				System.out.println("Please enter a valid account number");
 				return;
 			}
 
-			System.out.println("Enter the amount of money to transfer in cents:");
-			int amount = Quinterac.s.nextInt();
+			System.out.println("Enter the amount of money to transfer in cents: ");
+			int amount = 0;
+			if (Quinterac.s.hasNextInt())
+				amount = Integer.parseInt(Quinterac.s.nextLine());
 			
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
@@ -59,7 +65,7 @@ public class TransferMgr {
 					System.out.println("You have exceeded the daily limit");
 				}
 			} else {
-				System.out.println("Please enter a number between 0 - 200000");
+				System.out.println("Please enter a number between 0 - 1000000");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -71,10 +77,10 @@ public class TransferMgr {
 	public static void agentCheckTransferValid(String accNum, int amount, String accNumB) {
 		try {
 			if (amount >= 0 && amount <= 99999999) {
-				System.out.println("Transfer successfully:");
+				System.out.println("Transfer successful!");
 				TransactionFileMgr.addXfrTransaction(accNum, Integer.toString(amount), accNumB);
 			} else {
-				System.out.println("Please enter a number between 0 - 99999999:");
+				System.out.println("Please enter a number between 0 - 99999999");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
