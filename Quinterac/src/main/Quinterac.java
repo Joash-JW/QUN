@@ -19,4 +19,5 @@ public class Quinterac {
             Frontend.mainFrontend(args[1], args[2]);
         }
     }
+    
 }

@@ -15,7 +15,8 @@ public class CreateAccTest {
     public void testAppR3T2() throws Exception {
         AppTest.runAndTest(Arrays.asList("login", "agent", "createacct"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("Enter new account number (7 digits):"),
+                Arrays.asList("Enter new account number (7 digits):", "Enter new account name (3 to 30 alphanumeric characters):", 
+                		      "Account has been created. Please logout."),
                 Arrays.asList(""));
     }
 	

@@ -64,7 +64,7 @@ public class AppTest {
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
-        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());        
+        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(in);
 
         // setup stdin & stdout:
