@@ -53,19 +53,45 @@ public class LoginTest {
     }
 	
 	
-	
-	
 	@Test
-    public void testAppR1T6() throws Exception {
+    public void testAppR1T7() throws Exception {
         AppTest.runAndTest(Arrays.asList("login"),
                 Arrays.asList("1234567", "1234568"),
                 Arrays.asList("Enter type of Session (machine or agent):"),
                 Arrays.asList(""));
     }
 	
+	
+	@Test
+    public void testAppR1T8() throws Exception {
+        AppTest.runAndTest(Arrays.asList("login", "machine", "login"),
+                Arrays.asList("1234567", "1234568"),
+                Arrays.asList("You are already logged in."),
+                Arrays.asList(""));
+    }	
+	
+	
+	@Test
+    public void testAppR1T9() throws Exception {
+        AppTest.runAndTest(Arrays.asList("login", "123"),
+                Arrays.asList("1234567", "1234568"),
+                Arrays.asList("Please enter a valid session type."),
+                Arrays.asList(""));
+    }
+	
+	
 	@Test
     public void testAppR1T10() throws Exception {
         AppTest.runAndTest(Arrays.asList("login", "machine"),
+                Arrays.asList("1234567", "1234568"),
+                Arrays.asList("You have logged in."),
+                Arrays.asList(""));
+    }
+	
+	
+	@Test
+    public void testAppR1T1() throws Exception {
+        AppTest.runAndTest(Arrays.asList("login", "agent"),
                 Arrays.asList("1234567", "1234568"),
                 Arrays.asList("You have logged in."),
                 Arrays.asList(""));
