@@ -20,6 +20,42 @@ public class LoginTest {
     }
 	
 	@Test
+    public void testAppR1T3() throws Exception {
+        AppTest.runAndTest(Arrays.asList("deleteacct"),
+                Arrays.asList("1234567", "1234568"),
+                Arrays.asList("Please login first."),
+                Arrays.asList(""));
+    }
+	
+	@Test
+    public void testAppR1T4() throws Exception {
+        AppTest.runAndTest(Arrays.asList("deposit"),
+                Arrays.asList("1234567", "1234568"),
+                Arrays.asList("Please login first."),
+                Arrays.asList(""));
+    }
+
+	
+	@Test
+    public void testAppR1T5() throws Exception {
+        AppTest.runAndTest(Arrays.asList("withdraw"),
+                Arrays.asList("1234567", "1234568"),
+                Arrays.asList("Please login first."),
+                Arrays.asList(""));
+    }
+	
+	@Test
+    public void testAppR1T6() throws Exception {
+        AppTest.runAndTest(Arrays.asList("transfer"),
+                Arrays.asList("1234567", "1234568"),
+                Arrays.asList("Please login first."),
+                Arrays.asList(""));
+    }
+	
+	
+	
+	
+	@Test
     public void testAppR1T6() throws Exception {
         AppTest.runAndTest(Arrays.asList("login"),
                 Arrays.asList("1234567", "1234568"),
