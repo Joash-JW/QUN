@@ -90,7 +90,7 @@ public class LoginTest {
 	
 	
 	@Test
-    public void testAppR1T1() throws Exception {
+    public void testAppR1T11() throws Exception {
         AppTest.runAndTest(Arrays.asList("login", "agent"),
                 Arrays.asList("1234567", "1234568"),
                 Arrays.asList("You have logged in."),
