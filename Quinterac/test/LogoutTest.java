@@ -58,7 +58,7 @@ public class LogoutTest {
     
     
     @Test
-    public void testAppR2T6() throws Exception {
+    public void testAppR2T7() throws Exception {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout"),
                 Arrays.asList("1234567"),
                 Arrays.asList("You have logged out."),
