@@ -7,7 +7,7 @@ public class LogoutTest {
     public void testAppR2T1() throws Exception {
         runAndTest(Arrays.asList("login", "machine", "logout", "logout"),
                 Arrays.asList("1234567"),
-                Arrays.asList("Please use agent mode."),
+                Arrays.asList("Please login first."),
                 null);
     }
     
@@ -16,7 +16,7 @@ public class LogoutTest {
     public void testAppR2T2() throws Exception {
         runAndTest(Arrays.asList("login", "machine", "logout", "createacct"),
                 Arrays.asList("1234567"),
-                Arrays.asList("Please use agent mode."),
+                Arrays.asList("Please login first."),
                 null);
     }
     
@@ -25,7 +25,7 @@ public class LogoutTest {
     public void testAppR2T3() throws Exception {
         runAndTest(Arrays.asList("login", "machine", "logout", "deleteacct"),
                 Arrays.asList("1234567"),
-                Arrays.asList("Please use agent mode."),
+                Arrays.asList("Please login first."),
                 null);
     }
     
@@ -34,7 +34,7 @@ public class LogoutTest {
     public void testAppR2T4() throws Exception {
         runAndTest(Arrays.asList("login", "machine", "logout", "deposit"),
                 Arrays.asList("1234567"),
-                Arrays.asList("Please use agent mode."),
+                Arrays.asList("Please login first."),
                 null);
     }
     
@@ -43,7 +43,7 @@ public class LogoutTest {
     public void testAppR2T5() throws Exception {
         runAndTest(Arrays.asList("login", "machine", "logout", "withdraw"),
                 Arrays.asList("1234567"),
-                Arrays.asList("Please use agent mode."),
+                Arrays.asList("Please login first."),
                 null);
     }
     
@@ -52,7 +52,7 @@ public class LogoutTest {
     public void testAppR2T6() throws Exception {
         runAndTest(Arrays.asList("login", "machine", "logout", "transfer"),
                 Arrays.asList("1234567"),
-                Arrays.asList("Please use agent mode."),
+                Arrays.asList("Please login first."),
                 null);
     }
     
