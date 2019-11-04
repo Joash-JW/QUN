@@ -62,7 +62,7 @@ public class DepositTest {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "deposit", "1234567", "200000", "deposit", "1234567", "200000", "deposit", "1234567", "100001", "logout"), 
 							Arrays.asList("1234567"),
 							Arrays.asList("You have exceeded the daily limit.", "You have logged out."),
-							Arrays.asList("DEP 1234567 20000000 0000000 ***", "DEP 1234567 20000000 0000000 ***", "EOS 0000000 000 0000000 ***"));
+							Arrays.asList("DEP 1234567 200000 0000000 ***", "DEP 1234567 200000 0000000 ***", "EOS 0000000 000 0000000 ***"));
 	}
 	
 	@Test
@@ -70,8 +70,9 @@ public class DepositTest {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "deposit", "1234567", "200000", "deposit", "1234567", "200000", "deposit", "1234567", "100000", "logout"),
 							Arrays.asList("1234567"),
 							Arrays.asList("Deposit successfully!", "You have logged out."),
-							Arrays.asList("DEP 1234567 20000000 0000000 ***","DEP 1234567 20000000 0000000 ***","DEP 1234567 10000000 0000000 ***", "EOS 0000000 000 0000000 ***"));
+							Arrays.asList("DEP 1234567 200000 0000000 ***","DEP 1234567 200000 0000000 ***","DEP 1234567 100000 0000000 ***", "EOS 0000000 000 0000000 ***"));
 	}
 	
 }
+
 
