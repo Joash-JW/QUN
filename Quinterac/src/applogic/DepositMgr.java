@@ -15,7 +15,9 @@ public class DepositMgr {
 
 			//Scanner s = new Scanner(System.in);
 			System.out.println("Enter account number:");
-			String accNum = Quinterac.s.nextLine();
+			String accNum = "";
+			if (Quinterac.s.hasNextLine())
+				accNum = Quinterac.s.nextLine();
 
 			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
 				System.out.println("Please enter a valid account number:");
@@ -23,7 +25,7 @@ public class DepositMgr {
 			}
 
 			System.out.println("Enter the amount of money to deposit in cents:");
-			int amount = Quinterac.s.nextInt();
+			while (Quinterac.s.hasNextInt()) amount = Quinterac.s.nextInt();
 			
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
