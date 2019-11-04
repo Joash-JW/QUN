@@ -12,7 +12,7 @@ ECHO DepositTest#testAppR5T5
 CALL mvn clean -Dtest=DepositTest#testAppR5T5 -q test
 ECHO DepositTest#testAppR5T6
 CALL mvn clean -Dtest=DepositTest#testAppR5T6 -q test
-ECHO DepositTest#testAppR5T
+ECHO DepositTest#testAppR5T7
 CALL mvn clean -Dtest=DepositTest#testAppR5T7 -q test
 ECHO DepositTest#testAppR5T8
 CALL mvn clean -Dtest=DepositTest#testAppR5T8 -q test
