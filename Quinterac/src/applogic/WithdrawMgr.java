@@ -15,7 +15,9 @@ public class WithdrawMgr {
 
 			//Scanner s = new Scanner(System.in);
 			System.out.println("Enter account number: ");
-			String accNum = Quinterac.s.nextLine();
+			String accNum = "";
+			if (Quinterac.s.hasNextLine())
+				accNum = Quinterac.s.nextLine();
 
 			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
 				System.out.println("Please enter a valid account number");
@@ -23,7 +25,8 @@ public class WithdrawMgr {
 			}
 
 			System.out.println("Enter the amount of money to withdraw in cents:");
-			int amount = Quinterac.s.nextLine();
+			int amount = 0;
+			while (Quinterac.s.hasNextInt()) amount = Quinterac.s.nextInt();
 			
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
@@ -63,7 +66,7 @@ public class WithdrawMgr {
 	public static void agentCheckWithdrawValid(String accNum, int amount) {
 		try {
 			if (amount >= 0 && amount <= 99999999) {
-				System.out.println("Withdraw successfully:");
+				System.out.println("Withdraw successfully!");
 				TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
 			} else {
 				System.out.println("Please enter a number between 0 - 99999999:");

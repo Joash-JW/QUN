@@ -23,7 +23,7 @@ public class DepositMgr {
 			}
 
 			System.out.println("Enter the amount of money to deposit in cents:");
-			int amount = Quinterac.s.nextLine();
+			int amount = Quinterac.s.nextInt();
 			
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
