@@ -43,6 +43,7 @@ public class AccMgr {
 	public static void performDailyDeposit (int value, String accNum) {
 		checkAccExistsInMap(accNum);
 		dailyAccMap.get(accNum).increaseDailyDeposit(value);
+		System.out.println("Deposit successfully!");
 	}
 	
 	//checks dailyWithdrawLimit for a particular account
@@ -62,6 +63,7 @@ public class AccMgr {
 	public static void performDailyWithdraw (int value, String accNum) {
 		checkAccExistsInMap(accNum);
 		dailyAccMap.get(accNum).increaseDailyWithdraw(value);
+		System.out.println("Withdraw successfully!");
 	}
 	
 	//checks dailyTransferLimit for a particular account
@@ -81,5 +83,6 @@ public class AccMgr {
 	public static void performDailyTransfer (int value, String accNum) {
 		checkAccExistsInMap(accNum);
 		dailyAccMap.get(accNum).increaseDailyTransfer(value);
+		System.out.println("Transfer successful!");
 	}
 }
