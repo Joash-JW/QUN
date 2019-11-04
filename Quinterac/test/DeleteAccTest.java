@@ -15,7 +15,7 @@ public class DeleteAccTest {
     public void testAppR4T2() throws Exception {
         AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("Enter account number (7 digits):"),
+                Arrays.asList("Enter account number (7 digits):", "Enter account name (3 to 30 alphanumeric characters): "),
                 Arrays.asList(""));
     }
 
@@ -23,7 +23,8 @@ public class DeleteAccTest {
     public void testAppR4T3() throws Exception {
         AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "9999999"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("Please enter a valid account number"),
+                Arrays.asList("Please enter a valid account number", "Please enter it again", 
+                		"Enter account name (3 to 30 alphanumeric characters): "),
                 Arrays.asList(""));
     }
 
@@ -31,7 +32,7 @@ public class DeleteAccTest {
     public void testAppR4T4() throws Exception {
         AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("Enter account name (3 to 30 alphanumeric characters):"),
+                Arrays.asList("Enter account name (3 to 30 alphanumeric characters): "),
                 Arrays.asList(""));
     }
 
