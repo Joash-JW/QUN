@@ -12,7 +12,7 @@ public class DepositTest {
 	@Test
 	public void testAppR5T2() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "deposit", "1234567"), Arrays.asList("1234567"),
-						   Arrays.asList("Enter the amount of money to deposit in cents: ", "Deposit successfully!"), 
+						   Arrays.asList("Enter the amount of money to deposit in cents:", "Deposit successfully："), 
 						   Arrays.asList(""));
 	}
 	
@@ -39,7 +39,7 @@ public class DepositTest {
 	@Test
 	public void testAppR5T6() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "agent", "deposit", "1234567", "100000000"), Arrays.asList("1234567"),
-							Arrays.asList("Please enter a number between 0 - 99999999"),
+							Arrays.asList("Please enter a number between 0 - 99999999:"),
 							Arrays.asList(""));
 	}
 	
