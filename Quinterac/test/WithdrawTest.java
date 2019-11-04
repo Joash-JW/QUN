@@ -6,20 +6,20 @@ public class WithdrawTest {
 	@Test
 	public void testAppR6T1() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "withdraw", "9999999"), Arrays.asList("1234567"),
-							Arrays.asList("Please enter a valid account number"), Arrays.asList(""));
+							Arrays.asList("Please enter a valid account number:"), Arrays.asList(""));
 	}
 	
 	@Test
 	public void testAppR6T2() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "withdraw", "1234567"), Arrays.asList("1234567"),
-						   Arrays.asList("Enter the amount of money to withdraw in cents:", "Withdraw successful!"),
+						   Arrays.asList("Enter the amount of money to withdraw in cents:", "Withdraw successfully!"),
 						   Arrays.asList(""));
 	}
 	
 	@Test
 	public void testAppR6T3() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "withdraw", "1234567", "100001"), Arrays.asList("1234567"),
-							Arrays.asList("Please enter a number between 0 - 200000"), Arrays.asList(""));
+							Arrays.asList("Please enter a number between 0 - 200000:"), Arrays.asList(""));
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class WithdrawTest {
 	public void testAppR6T9() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "withdraw", "1234567", "100000", "withdraw", "1234567", "100000", "withdraw", "1234567", "100000", "withdraw", "1234567", "100000","withdraw", "1234567", "100000","withdraw", "1234567", "1","logout"), 
 							Arrays.asList("1234567"),
-							Arrays.asList("You have exceeded the daily limit", "You have logged out."),
+							Arrays.asList("You have exceeded the daily limit.","You have logged out."),
 							Arrays.asList("WDR 1234567 10000000 0000000 ***", "WDR 1234567 10000000 0000000 ***","WDR 1234567 10000000 0000000 ***","WDR 1234567 10000000 0000000 ***","WDR 1234567 10000000 0000000 ***","EOS 0000000 000 0000000 ***"));
 	}
 	

@@ -14,13 +14,13 @@ public class WithdrawMgr {
 			}
 
 			//Scanner s = new Scanner(System.in);
-			System.out.println("Enter account number: ");
+			System.out.println("Enter account number:");
 			String accNum = "";
 			if (Quinterac.s.hasNextLine())
 				accNum = Quinterac.s.nextLine();
 
 			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
-				System.out.println("Please enter a valid account number");
+				System.out.println("Please enter a valid account number:");
 				return;
 			}
 
@@ -52,10 +52,10 @@ public class WithdrawMgr {
 					TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
 					System.out.println("Withdraw successful!");
 				} else {
-					System.out.println("You have exceeded the daily limit");
+					System.out.println("You have exceeded the daily limit.");
 				}
 			} else {
-				System.out.println("Please enter a number between 0 - 200000");
+				System.out.println("Please enter a number between 0 - 200000:");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

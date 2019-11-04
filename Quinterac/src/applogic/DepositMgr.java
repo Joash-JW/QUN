@@ -14,16 +14,19 @@ public class DepositMgr {
 			}
 
 			//Scanner s = new Scanner(System.in);
-			System.out.println("Enter account number: ");
-			String accNum = Quinterac.s.nextLine();
+			System.out.println("Enter account number:");
+			String accNum = "";
+			if (Quinterac.s.hasNextLine())
+				accNum = Quinterac.s.nextLine();
 
 			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
-				System.out.println("Please enter a valid account number");
+				System.out.println("Please enter a valid account number:");
 				return;
 			}
 
 			System.out.println("Enter the amount of money to deposit in cents:");
-			int amount = Quinterac.s.nextInt();
+			int amount = 0;
+			while (Quinterac.s.hasNextInt()) amount = Quinterac.s.nextInt();
 			
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
@@ -48,10 +51,10 @@ public class DepositMgr {
 					TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
 					System.out.println("Deposit successful!");
 				} else {
-					System.out.println("You have exceeded the daily limit");
+					System.out.println("You have exceeded the daily limit.");
 				}
 			} else {
-				System.out.println("Please enter a number between 0 - 200000");
+				System.out.println("Please enter a number between 0 - 200000:");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
