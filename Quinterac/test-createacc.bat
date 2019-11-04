@@ -19,6 +19,8 @@ CALL mvn clean -Dtest=CreateAccTest#testAppR3T8 -q test
 ECHO CreateAccTest#testAppR3T9
 CALL mvn clean -Dtest=CreateAccTest#testAppR3T9 -q test
 ECHO CreateAccTest#testAppR3T10
+CALL mvn clean -Dtest=CreateAccTest#testAppR3T10 -q test
+ECHO CreateAccTest#testAppR3T11
 CALL mvn clean -Dtest=CreateAccTest#testAppR3T11 -q test
 ECHO CreateAccTest#testAppR3T12
 CALL mvn clean -Dtest=CreateAccTest#testAppR3T12 -q test
