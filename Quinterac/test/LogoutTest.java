@@ -8,7 +8,7 @@ public class LogoutTest {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout", "logout"),
                 Arrays.asList("1234567"),
                 Arrays.asList("Please login first."),
-                null);
+                Arrays.asList("EOS 0000000 000 0000000 ***"));
     }
     
     
@@ -17,7 +17,7 @@ public class LogoutTest {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout", "createacct"),
                 Arrays.asList("1234567"),
                 Arrays.asList("Please login first."),
-                null);
+                Arrays.asList("EOS 0000000 000 0000000 ***"));
     }
     
     
@@ -26,7 +26,7 @@ public class LogoutTest {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout", "deleteacct"),
                 Arrays.asList("1234567"),
                 Arrays.asList("Please login first."),
-                null);
+                Arrays.asList("EOS 0000000 000 0000000 ***"));
     }
     
     
@@ -35,7 +35,7 @@ public class LogoutTest {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout", "deposit"),
                 Arrays.asList("1234567"),
                 Arrays.asList("Please login first."),
-                null);
+                Arrays.asList("EOS 0000000 000 0000000 ***"));
     }
     
     
@@ -44,7 +44,7 @@ public class LogoutTest {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout", "withdraw"),
                 Arrays.asList("1234567"),
                 Arrays.asList("Please login first."),
-                null);
+                Arrays.asList("EOS 0000000 000 0000000 ***"));
     }
     
     
@@ -53,7 +53,7 @@ public class LogoutTest {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout", "transfer"),
                 Arrays.asList("1234567"),
                 Arrays.asList("Please login first."),
-                null);
+                Arrays.asList("EOS 0000000 000 0000000 ***"));
     }
     
     
@@ -62,7 +62,7 @@ public class LogoutTest {
          AppTest.runAndTest(Arrays.asList("login", "machine", "logout"),
                 Arrays.asList("1234567"),
                 Arrays.asList("You have logged out."),
-                null);
+                Arrays.asList("EOS 0000000 000 0000000 ***"));
     }
 }
     

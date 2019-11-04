@@ -42,5 +42,5 @@ public class LoginMgr {
     }
     
     //sets loggedIn to false and mode to null
-    public static void resetLogin() { loggedIn = false; mode = null;}
+    public static void resetLogin() { loggedIn = false; mode = "";}
 }
