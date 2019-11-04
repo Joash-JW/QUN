@@ -20,7 +20,7 @@ public class DepositMgr {
 				accNum = Quinterac.s.nextLine();
 
 			if (!ValidAccListMgr.checkAccNumExist(accNum)) {
-				System.out.println("Please enter a valid account number:");
+				System.out.println("Please enter a valid account number");
 				return;
 			}
 
@@ -49,7 +49,7 @@ public class DepositMgr {
 				if (AccMgr.checkDailyDepositLimit(accNum, amount)) {
 					AccMgr.performDailyDeposit(amount, accNum);
 					TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
-					//System.out.println("Deposit successful!");
+					System.out.println("Deposit successfully!");
 				} else {
 					System.out.println("You have exceeded the daily limit.");
 				}

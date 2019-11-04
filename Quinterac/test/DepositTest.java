@@ -6,7 +6,7 @@ public class DepositTest {
 	@Test
 	public void testAppR5T1() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "deposit", "9999999"), Arrays.asList("1234567"),
-							Arrays.asList("Please enter a valid account number:"), Arrays.asList(""));
+							Arrays.asList("Please enter a valid account number"), Arrays.asList(""));
 	}
 	
 	@Test

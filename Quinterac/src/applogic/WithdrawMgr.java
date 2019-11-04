@@ -20,7 +20,7 @@ public class WithdrawMgr {
                 accNum = Quinterac.s.nextLine();
             
             if (!ValidAccListMgr.checkAccNumExist(accNum)) {
-                System.out.println("Please enter a valid account number:");
+                System.out.println("Please enter a valid account number");
                 return;
             }
             
@@ -50,7 +50,7 @@ public class WithdrawMgr {
                 if (AccMgr.checkDailyWithdrawLimit(accNum, amount)) {
                     AccMgr.performDailyWithdraw(amount, accNum);
                     TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
-                    //System.out.println("Withdraw successfully!");
+                    System.out.println("Withdraw successfully!");
                 } else {
                     System.out.println("You have exceeded the daily limit.");
                 }

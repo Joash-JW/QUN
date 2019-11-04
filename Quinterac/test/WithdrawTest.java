@@ -6,7 +6,7 @@ public class WithdrawTest {
 	@Test
 	public void testAppR6T1() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "withdraw", "9999999"), Arrays.asList("1234567"),
-							Arrays.asList("Please enter a valid account number:"), Arrays.asList(""));
+							Arrays.asList("Please enter a valid account number"), Arrays.asList(""));
 	}
 	
 	@Test
