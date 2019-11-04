@@ -50,6 +50,7 @@ public class WithdrawMgr {
 				if (AccMgr.checkDailyWithdrawLimit(accNum, amount)) {
 					AccMgr.performDailyWithdraw(amount, accNum);
 					TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
+					System.out.println("Withdraw successful!");
 				} else {
 					System.out.println("You have exceeded the daily limit");
 				}
@@ -66,7 +67,7 @@ public class WithdrawMgr {
 	public static void agentCheckWithdrawValid(String accNum, int amount) {
 		try {
 			if (amount >= 0 && amount <= 99999999) {
-				System.out.println("Withdraw successfully!");
+				System.out.println("Withdraw successful!");
 				TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
 			} else {
 				System.out.println("Please enter a number between 0 - 99999999:");

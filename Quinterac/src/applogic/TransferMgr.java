@@ -61,6 +61,7 @@ public class TransferMgr {
 				if (AccMgr.checkDailyTransferLimit(accNum, amount)) {
 					AccMgr.performDailyTransfer(amount, accNum);
 					TransactionFileMgr.addXfrTransaction(accNum, Integer.toString(amount), accNumB);
+					System.out.println("Transfer successful!");
 				} else {
 					System.out.println("You have exceeded the daily limit");
 				}

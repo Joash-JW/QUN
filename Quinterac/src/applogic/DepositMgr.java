@@ -46,6 +46,7 @@ public class DepositMgr {
 				if (AccMgr.checkDailyDepositLimit(accNum, amount)) {
 					AccMgr.performDailyDeposit(amount, accNum);
 					TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
+					System.out.println("Deposit successful!");
 				} else {
 					System.out.println("You have exceeded the daily limit");
 				}
@@ -62,7 +63,7 @@ public class DepositMgr {
 	public static void agentCheckDepositValid(String accNum, int amount) {
 		try {
 			if (amount >= 0 && amount <= 99999999) {
-				System.out.println("Deposit successfully:");
+				System.out.println("Deposit successful!");
 				TransactionFileMgr.addDepTransaction(accNum, Integer.toString(amount));
 			} else {
 				System.out.println("Please enter a number between 0 - 99999999:");
