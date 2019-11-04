@@ -66,7 +66,7 @@ public class WithdrawMgr {
     //method to check if withdraw amount is valid in agent mode
     public static void agentCheckWithdrawValid(String accNum, int amount) {
         try {
-            if (amount >= 0 && amount < 100000000) {
+            if (amount >= 0 && amount <= 99999999) {
                 System.out.println("Withdraw successfully!");
                 TransactionFileMgr.addWdrTransaction(accNum, Integer.toString(amount));
             } else {
