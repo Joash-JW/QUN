@@ -32,7 +32,7 @@ public class WithdrawTest {
 	@Test
 	public void testAppR6T5() throws Exception {
 		AppTest.runAndTest(Arrays.asList("login", "machine", "withdraw", "1234567", "99999", "logout"), Arrays.asList("1234567"),
-							Arrays.asList("You have exceeded the daily limit.","You have logged out."),
+							Arrays.asList("Withdraw successfully!","You have logged out."),
 							Arrays.asList("WDR 1234567 99999 0000000 ***", "EOS 0000000 000 0000000 ***"));
 	}
 	
