@@ -37,25 +37,25 @@ public class DeleteAccTest {
 
     @Test
     public void testAppR4T5() throws Exception {
-        AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567", "qwerty", "deposit"),
+        AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567", "qwerty", "deposit", "1234567"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("Account has been deleted. Please logout."),
+                Arrays.asList("Please enter a valid account number"),
                 Arrays.asList(""));
     }
 
     @Test
     public void testAppR4T6() throws Exception {
-        AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567", "qwerty", "withdraw"),
+        AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567", "qwerty", "withdraw", "1234567"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("Account has been deleted. Please logout."),
+                Arrays.asList("Please enter a valid account number"),
                 Arrays.asList(""));
     }
 
     @Test
     public void testAppR4T7() throws Exception {
-        AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567", "qwerty", "transfer"),
+        AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567", "qwerty", "transfer", "1234567"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("Account has been deleted. Please logout."),
+                Arrays.asList("Please enter a valid account number"),
                 Arrays.asList(""));
     }
 
@@ -63,7 +63,7 @@ public class DeleteAccTest {
     public void testAppR4T8() throws Exception {
         AppTest.runAndTest(Arrays.asList("login", "agent", "deleteacct", "1234567", "qwerty", "logout"),
                 Arrays.asList("1234567", "1234568"),
-                Arrays.asList("You have logged out."),
+                Arrays.asList("Account has been deleted. Please logout.", "You have logged out."),
                 Arrays.asList("DEL 1234567 000 0000000 qwerty", "EOS 0000000 000 0000000 ***"));
     }
 }

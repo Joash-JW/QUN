@@ -1,6 +1,9 @@
 ::compile mvn
 CALL mvn compile
 
+::to go to a test directly
+::goto:DeleteAccTest
+
 ::run LoginTest
 ECHO LoginTest#testAppR1T1
 CALL mvn clean -Dtest=LoginTest#testAppR1T1 -q test
@@ -45,7 +48,27 @@ CALL mvn clean -Dtest=CreateAccTest#testAppR3T16 -q test
 ECHO CreateAccTest#testAppR3T17
 CALL mvn clean -Dtest=CreateAccTest#testAppR3T17 -q test
 
+::run DeleteAccTest
+:DeleteAccTest
+ECHO DeleteAccTest#testAppR4T1
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T1 -q test
+ECHO DeleteAccTest#testAppR4T2
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T2 -q test
+ECHO DeleteAccTest#testAppR4T3
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T3 -q test
+ECHO DeleteAccTest#testAppR4T4
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T4 -q test
+ECHO DeleteAccTest#testAppR4T5
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T5 -q test
+ECHO DeleteAccTest#testAppR4T6
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T6 -q test
+ECHO DeleteAccTest#testAppR4T7
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T7 -q test
+ECHO DeleteAccTest#testAppR4T8
+CALL mvn clean -Dtest=DeleteAccTest#testAppR4T8 -q test
+
 ::run TransferTest
+:TransferTest
 ECHO TransferTest#testAppR7T1
 CALL mvn clean -Dtest=TransferTest#testAppR7T1 -q test
 ECHO TransferTest#testAppR7T2

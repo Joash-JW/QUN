@@ -16,7 +16,7 @@ public class DeleteAccMgr {
                     System.out.println("Enter account number (7 digits):");
                     //Scanner s = new Scanner(System.in);
                     String accNum = Quinterac.s.nextLine();
-                    
+
                     if (!ValidAccListMgr.checkAccNumExist(accNum)) {
         				System.out.println("Please enter a valid account number");
         				return;

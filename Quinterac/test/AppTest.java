@@ -15,22 +15,6 @@ import main.Quinterac;
 
 public class AppTest {
 
-    /*@Test
-    public void testAppR1() throws Exception {
-        runAndTest(Arrays.asList("login"), //
-                Arrays.asList("123456"), //
-                Arrays.asList("123456", "writing transactions!"), //
-                Arrays.asList("hmm i am a transaction."));
-    }*/
-
-    /*@Test
-    public void testAppR3T1() throws Exception {
-        runAndTest(Arrays.asList("login", "machine", "createacct"),
-                Arrays.asList("1234567"),
-                Arrays.asList("Please use agent mode."),
-                null);
-    }*/
-
     /**
      * Helper function to run the main function and verify the output
      * 
