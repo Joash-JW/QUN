@@ -8,6 +8,10 @@ CALL mvn compile
 :LoginTest
 CALL test-login
 
+::run LogoutTest
+:LogoutTest
+CALL test-logout
+
 ::run CreateAccTest
 :CreateAccTest
 CALL test-createacc
@@ -15,6 +19,14 @@ CALL test-createacc
 ::run DeleteAccTest
 :DeleteAccTest
 CALL test-deleteacc
+
+::run DepositTest
+:DepositTest
+CALL test-deposit
+
+::run WithdrawTest
+:WithdrawTest
+CALL test-withdraw
 
 ::run TransferTest
 :TransferTest
