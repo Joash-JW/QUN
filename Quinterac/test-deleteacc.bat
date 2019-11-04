@@ -1,6 +1,3 @@
-::compile mvn
-CALL mvn compile
-
 ::run DeleteAccTest
 :DeleteAccTest
 ECHO DeleteAccTest#testAppR4T1
