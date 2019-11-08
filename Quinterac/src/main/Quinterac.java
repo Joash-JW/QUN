@@ -18,6 +18,9 @@ public class Quinterac {
         if (args[0].equals("frontend")) {
             Frontend.mainFrontend(args[1], args[2]);
         }
+        else if (args[0].equals("backend")) {
+            Backend.mainBackend(args[1], args[2]);
+        }
     }
     
 }
