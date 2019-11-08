@@ -1,7 +1,5 @@
 package main;
 
-import data.TransactionHistory;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
