@@ -6,10 +6,10 @@ public class Account {
   private String accName;// name of the accoount
   
   //creation of a new account
-  public Acc (String accNum, String accName, String amount) {
+  public Account (String accNum, String amount, String accName) {
 		this.accNum = accNum;
 		this.accName = accName;
-    this.amount = Integer.parseInt(amount);
+		this.amount = Integer.parseInt(amount);
 	}
   
   //return the amount of money in the account

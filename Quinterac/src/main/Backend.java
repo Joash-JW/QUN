@@ -11,7 +11,7 @@ public class Backend {
     private static ArrayList<String> accNums = new ArrayList<>();
 
     public static void mainBackend(String oldMaster, String transactionSummaryFile ) {
-        try {
+        /*try {
             Scanner file = new Scanner(new File(oldMaster));
             while (file.hasNextLine()) {
                 String[] line = file.nextLine().split(" ");
@@ -24,13 +24,13 @@ public class Backend {
             file.close();
             return;
         } catch (FileNotFoundException e) { System.out.println(e); }
-        writeNewMaster(oldMaster);
+        writeNewMaster(oldMaster);*/
     }
 
     public static void writeNewMaster(String newMaster) {
         Collections.sort(accNums);
 
-        try {
+        /*try {
             PrintWriter out = new PrintWriter(new FileWriter(newMaster));
 
             for (String accNum : accNums) {
@@ -42,6 +42,6 @@ public class Backend {
             out.close();
         } catch (IOException e) {
             System.out.println(e);
-        }
+        }*/
     }
 }
