@@ -1,9 +1,8 @@
 //the objective of this class is to manage all transfer operations and exceptions
 
-package applogic;
-import java.util.Scanner;
+package frontend.applogic;
 import main.Quinterac;
-import exceptions.NotLoggedInException;
+import frontend.exceptions.NotLoggedInException;
 
 public class TransferMgr {
 	//method to perform transfer operation

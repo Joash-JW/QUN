@@ -1,11 +1,8 @@
 //the objective of this class is to manage delete account operations and exceptions
 
-package applogic;
-import exceptions.InvalidModeException;
-import exceptions.NotLoggedInException;
+package frontend.applogic;
+import frontend.exceptions.*;
 import main.Quinterac;
-
-import java.util.Scanner;
 
 public class DeleteAccMgr {
 	//method to perform delete account operations

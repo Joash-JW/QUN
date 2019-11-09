@@ -1,6 +1,6 @@
 //objective of this class is to manage the hashMap of accounts which perform transactions in each day
 
-package applogic;
+package frontend.applogic;
 import java.util.*;
 import data.Acc;
 

@@ -1,7 +1,6 @@
 //the objective of this class is to manage login operations and exceptions
 
-package applogic;
-import java.util.Scanner;
+package frontend.applogic;
 import main.Quinterac;
 
 public class LoginMgr {

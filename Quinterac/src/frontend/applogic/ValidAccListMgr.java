@@ -1,6 +1,6 @@
 //the objective of this class is to handle the reading in of the valid accounts list file and check if an account number is valid
 
-package applogic;
+package frontend.applogic;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;

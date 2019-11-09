@@ -1,7 +1,7 @@
 //the objective of this class is to manage logout operations and exceptions
 
-package applogic;
-import exceptions.NotLoggedInException;
+package frontend.applogic;
+import frontend.exceptions.NotLoggedInException;
 
 public class LogoutMgr {
 	//method to perform logout operation

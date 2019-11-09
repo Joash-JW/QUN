@@ -1,8 +1,7 @@
 //the objective of this class is to manage create account operations and exceptions
 
-package applogic;
-import java.util.Scanner;
-import exceptions.*;
+package frontend.applogic;
+import frontend.exceptions.*;
 import main.Quinterac;
 
 public class CreateAccMgr {

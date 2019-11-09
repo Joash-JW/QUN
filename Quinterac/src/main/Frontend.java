@@ -2,8 +2,7 @@
 
 package main;
 
-import applogic.*;
-import java.util.Scanner;
+import frontend.applogic.*;
 
 public class Frontend {
 	//method to start frontend program

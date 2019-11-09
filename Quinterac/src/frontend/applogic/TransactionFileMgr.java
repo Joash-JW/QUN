@@ -1,6 +1,6 @@
 //the objective of this class is to manage all the transactions performed in the day
 
-package applogic;
+package frontend.applogic;
 import java.util.*;
 import java.io.*;
 import data.TransactionHistory;
