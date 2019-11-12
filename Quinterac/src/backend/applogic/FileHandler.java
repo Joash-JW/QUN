@@ -1,7 +1,6 @@
 package backend.applogic;
 
 import backend.data.Account;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +9,7 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-    public static HashMap readOldMasterFile(String oldMasterFile) {
+    public static HashMap<String, Account> readOldMasterFile(String oldMasterFile) {
         HashMap<String, Account> data = new HashMap<>();
         try {
             Scanner file = new Scanner(new File(oldMasterFile));
@@ -48,7 +47,7 @@ public class FileHandler {
         }
     }
 
-    public static ArrayList readTransactionSummaryFile(String transactionSummaryFile) {
+    public static ArrayList<String[]> readTransactionSummaryFile(String transactionSummaryFile) {
         ArrayList<String[]> transactionFile = new ArrayList<>();
         try {
             Scanner file = new Scanner(new File(transactionSummaryFile));

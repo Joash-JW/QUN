@@ -1,18 +1,21 @@
 package backend.applogic;
 
+import backend.data.Account;
+
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class TransactionProcessor {
-    
-    private static void executeAppropriateTransaction(ArrayList<String[]> transList) {
-        
-        for (String[] t : transList) {
-            int toAccNum = Integer.parseInt(tranMsg[1]);
-            int fromAccNum = Integer.parseInt(tranMsg[2]);
-            int amount = Integer.parseInt(tranMsg[3]);
+    private static HashMap<String, Account> accData;
+    public static HashMap<String, Account> executeTransactions(HashMap<String, Account> data, ArrayList<String[]> transList) {
+        accData = data;
+        for (String[] arr : transList) {
+            String toAccNum = arr[1];
+            int amount = Integer.parseInt(arr[2]);
+            String fromAccNum = arr[3];
+            String accName = arr[4];
             
-            switch (tranMsg[0]) {
+            switch (arr[0]) {
                 case "DEP":
                     deposit(toAccNum, amount);
                     break;
@@ -23,100 +26,68 @@ public class TransactionProcessor {
                     transfer(toAccNum, fromAccNum, amount);
                     break;
                 case "NEW":
-                    create(toAccNum, tranMsg[4]);
+                    create(toAccNum, accName);
                     break;
                 case "DEL":
-                    delete(toAccNum, tranMsg[4]);
+                    delete(toAccNum, accName);
                     break;
-                case "EOS":
-                    break;
+                //case "EOS":
+                //    break;
                 default:
                     crash("Transaction summary code is incorrect.");
             }
         }
+        return accData;
     }
     
-    private static void create(int accNum, String accName) {
-        if (findAccount(accNum) == null) {
-            localMasterAccList.add(new Account(accNum, accName));
+    private static void create(String accNum, String accName) {
+        accData.put(accNum, new Account(accNum, "0", accName));
+    }
+    
+    private static void delete(String accNum, String accName) {
+        Account acc = accData.get(accNum);
+        if (acc.getAmount() == 0 && acc.getAccName().equals(accName)) {
+            accData.remove(accNum);
         } else {
-            System.out.println("Transaction ignored. Account already exists.");
+            System.out.println("Transaction ignored. Delete conditions not met");
         }
     }
     
-    private static void delete(int accNum, String accName) {
-        Account a = findAccount(accNum);
-        if (a != null) {
-            if (a.getBalance() == 0 && a.getName().equals(accName)) {
-                localMasterAccList.remove(a);
-            } else {
-                System.out.println("Transaction ignored. Delete conditions not met");
-            }
+    private static void withdraw(String accNum, int amount) {
+        Account acc = accData.get(accNum);
+        int newBalance = acc.getAmount() - amount;
+        if (newBalance >= 0) {
+            acc.setAmount(newBalance);
         } else {
-            System.out.println("Transaction ignored. Account does not exist.");
+            System.out.println("Transaction ignored. " + accNum + " would have a negative balance.");
         }
     }
     
-    private static void withdraw(int accNum, int amount) {
-        Account a = findAccount(accNum);
-        if (a != null) {
-            int newBalance = a.getBalance() - amount;
-            if (newBalance >= 0) {
-                a.setBalance(newBalance);
-            } else {
-                System.out.println("Transaction ignored. " + accNum + " would have a negative balance.");
-            }
+    private static void deposit(String accNum, int amount) {
+        Account acc = accData.get(accNum);
+        int newBalance = acc.getAmount() + amount;
+        if (newBalance <= 99999999) {
+            acc.setAmount(newBalance);
         } else {
-            System.out.println("Transaction ignored. Account does not exist.");
+            System.out.println("Transaction ignored. " + accNum + " would exceed max amount.");
         }
     }
     
-    private static void deposit(int accNum, int amount) {
-        Account a = findAccount(accNum);
-        if (a != null) {
-            int newBalance = a.getBalance() + amount;
-            if (newBalance <= 99999999) {
-                a.setBalance(newBalance);
-            } else {
-                System.out.println("Transaction ignored. " + accNum + " would exceed max amount.");
-            }
-        } else {
-            System.out.println("Transaction ignored. Account does not exist.");
-        }
-    }
-    
-    private static void transfer(int toAccNum, int fromAccNum, int amount) {
-        Account fromAcc = findAccount(fromAccNum);
-        if (fromAcc == null){
-            System.out.println("Transaction ignored. Account does not exist.");
-            return;
-        } else if (fromAcc.getBalance() - amount < 0){
+    private static void transfer(String toAccNum, String fromAccNum, int amount) {
+        Account fromAcc = accData.get(fromAccNum);
+        if (fromAcc.getAmount() - amount < 0){
             System.out.println("Transaction ignored. " + fromAccNum + " would have a negative balance.");
             return;
         }
-        
-        Account toAcc = findAccount(toAccNum);
-        if (toAcc == null) {
-            System.out.println("Transaction ignored. Account does not exist.");
-            return;
-        } else if (toAcc.getBalance() + amount > 99999999) {
+        Account toAcc = accData.get(toAccNum);
+        if (toAcc.getAmount() + amount > 99999999) {
             System.out.println("Transaction ignored. " + toAccNum + " would exceed max amount.");
             return;
         }
-        
         withdraw(fromAccNum, amount);
         deposit(toAccNum, amount);
     }
-    
-    
-    private static Account findAccount(int accNum) {
-        for (Account a : localMasterAccList) {
-            if (accNum == a.getAccNum())
-                return a;
-        }
-        return null;
-    }
-    
+
     private static void crash(String msg) {
         System.out.println(msg);
         System.exit(1);
