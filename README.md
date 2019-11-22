@@ -12,8 +12,9 @@ This project is for Queen's University CISC/CMPE 327 CISC/CMPE 327 Software Qual
 
 ### Architecture of Quinterac
 Both the frontend and backend of the Software System is modelled in a **Layered Architecture** System. The diagram below illustrates the architecture.
-|Frontend|Backend|
-|:------:|:-----:|
+
+| Frontend | Backend |
+| :------: | :-----: |
 |![frontend img](./frontend.PNG)|![backend img](./backend.PNG)|
 
 ## Technical Information
