@@ -14,11 +14,11 @@ This project is for Queen's University CISC/CMPE 327 CISC/CMPE 327 Software Qual
 Both the frontend and backend of the Software System is modelled in a **Layered Architecture** System. The diagram below illustrates the architecture.
 |Frontend|Backend|
 |:------:|:-----:|
-|![frontend img](./frontend.png)|![frontend img](./backend.png)|
+|![frontend img](./frontend.PNG)|![backend img](./backend.PNG)|
 
 ## Technical Information
-Programming Language: [Java](https://www.java.com/en/)
-Dependencies: [Maven](https://maven.apache.org/)
+- Programming Language: [Java](https://www.java.com/en/)
+- Dependencies: [Maven](https://maven.apache.org/)
 
 To compile:
 ```java
