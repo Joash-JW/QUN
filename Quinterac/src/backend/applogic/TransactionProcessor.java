@@ -26,7 +26,7 @@ public class TransactionProcessor {
 				deposit(toAccNum, amount);
 				break;
 			case "WDR":
-				withdraw(fromAccNum, amount);
+				withdraw(toAccNum, amount);
 				break;
 			case "XFR":
 				transfer(toAccNum, fromAccNum, amount);
