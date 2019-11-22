@@ -54,11 +54,10 @@ public class TransactionProcessor {
 	// removes old account from list of accData
 	private static void delete(String accNum, String accName) {
 		Account acc = accData.get(accNum);
-		if (acc.getAmount() == 0 && acc.getAccName().equals(accName)) {
-			accData.remove(accNum);
-		} else {
-			System.out.println("Transaction ignored. Delete conditions not met");
-		}
+		if (acc.getAmount() != 0) crash("Transaction ignored. Account balance is not zero");
+		else if (!acc.getAccName().equals(accName)) crash("Transaction ignored. Account name does not match");
+		else accData.remove(accNum);
+		//System.out.println("Transaction ignored. Delete conditions not met");
 	}
 
 	// withdraws money from relevant account
@@ -68,7 +67,7 @@ public class TransactionProcessor {
 		if (newBalance >= 0) {
 			acc.setAmount(newBalance);
 		} else {
-			System.out.println("Transaction ignored. " + accNum + " would have a negative balance.");
+			crash("Transaction ignored. " + accNum + " would have a negative balance.");
 		}
 	}
 
@@ -79,7 +78,7 @@ public class TransactionProcessor {
 		if (newBalance <= 99999999) {
 			acc.setAmount(newBalance);
 		} else {
-			System.out.println("Transaction ignored. " + accNum + " would exceed max amount.");
+			crash("Transaction ignored. " + accNum + " would exceed max amount.");
 		}
 	}
 
@@ -87,12 +86,12 @@ public class TransactionProcessor {
 	private static void transfer(String toAccNum, String fromAccNum, int amount) {
 		Account fromAcc = accData.get(fromAccNum);
 		if (fromAcc.getAmount() - amount < 0) {
-			System.out.println("Transaction ignored. " + fromAccNum + " would have a negative balance.");
+			crash("Transaction ignored. " + fromAccNum + " would have a negative balance.");
 			return;
 		}
 		Account toAcc = accData.get(toAccNum);
 		if (toAcc.getAmount() + amount > 99999999) {
-			System.out.println("Transaction ignored. " + toAccNum + " would exceed max amount.");
+			crash("Transaction ignored. " + toAccNum + " would exceed max amount.");
 			return;
 		}
 		withdraw(fromAccNum, amount);
