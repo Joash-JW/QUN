@@ -139,7 +139,7 @@ public class AppTest {
 
 		String dir = System.getProperty("user.dir");
 		List<String> lines2 = new ArrayList<String>();
-		Scanner file_valid_acc = new Scanner(new File(dir + "\\src\\ValidAccList.txt"));
+		Scanner file_valid_acc = new Scanner(new File(dir + "\\test\\ValidAccList.txt"));
 		while (file_valid_acc.hasNextLine()) {
 			lines2.add(file_valid_acc.nextLine());
 		}

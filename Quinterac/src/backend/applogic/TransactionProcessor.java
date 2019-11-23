@@ -101,7 +101,7 @@ public class TransactionProcessor {
 	// terminates program when error encountered
 	private static void crash(String msg) {
 		System.out.println(msg);
-		System.exit(1);
+		//System.exit(1);
 	}
 
 }
