@@ -3,6 +3,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -139,13 +140,16 @@ public class AppTest {
 
 		String dir = System.getProperty("user.dir");
 		List<String> lines2 = new ArrayList<String>();
-		Scanner file_valid_acc = new Scanner(new File(dir + "\\ValidAccList.txt"));
-		while (file_valid_acc.hasNextLine()) {
-			lines2.add(file_valid_acc.nextLine());
+		try {
+			Scanner file_valid_acc = new Scanner(new File(dir + "\\ValidAccList.txt"));
+			while (file_valid_acc.hasNextLine()) {
+				lines2.add(file_valid_acc.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+		} finally {
+			for (int i = 0; i < expected_valid_acc.size(); ++i)
+				assertEquals(expected_valid_acc.get(i), lines2.get(i));
 		}
-		for (int i = 0; i < lines2.size(); ++i)
-			assertEquals(expected_valid_acc.get(i), lines2.get(i));
-
 	}
 
 	/**

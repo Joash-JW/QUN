@@ -44,12 +44,19 @@ public class FileHandler {
 			PrintWriter out2 = new PrintWriter(new FileWriter(validAccList));
 
 			for (String accNum : accNums) {
+				String toBePrinted = "";
 				Account acc = data.get(accNum);
-				String toBePrinted = acc.getAccNum() + " " + acc.getAmount() + " " + acc.getAccName();
+				if (acc.getAmount() < 100) {
+					toBePrinted = acc.getAccNum() + " " + String.format("%03d", acc.getAmount()) + " "
+							+ acc.getAccName();
+				} else {
+					toBePrinted = acc.getAccNum() + " " + acc.getAmount() + " " + acc.getAccName();
+				}
 				out1.println(toBePrinted);
 				String newValidAccList = acc.getAccNum();
 				out2.println(newValidAccList);
 			}
+			out2.println("0000000");
 			out1.close();
 			out2.close();
 		} catch (IOException e) {

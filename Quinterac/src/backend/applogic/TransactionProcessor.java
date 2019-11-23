@@ -10,6 +10,7 @@ import backend.data.Account;
 
 public class TransactionProcessor {
 	private static HashMap<String, Account> accData;
+	private static boolean crash_val;
 
 	// manipulates account data based on transaction summary file
 	public static HashMap<String, Account> executeTransactions(HashMap<String, Account> data,
@@ -42,6 +43,11 @@ public class TransactionProcessor {
 			default:
 				crash("Transaction summary code is incorrect.");
 			}
+
+			// any new transactions are not saved
+			if (crash_val == true) {
+				return data;
+			}
 		}
 		return accData;
 	}
@@ -54,10 +60,13 @@ public class TransactionProcessor {
 	// removes old account from list of accData
 	private static void delete(String accNum, String accName) {
 		Account acc = accData.get(accNum);
-		if (acc.getAmount() != 0) crash("Transaction ignored. Account balance is not zero");
-		else if (!acc.getAccName().equals(accName)) crash("Transaction ignored. Account name does not match");
-		else accData.remove(accNum);
-		//System.out.println("Transaction ignored. Delete conditions not met");
+		if (acc.getAmount() != 0)
+			crash("Transaction ignored. Account balance is not zero");
+		else if (!acc.getAccName().equals(accName))
+			crash("Transaction ignored. Account name does not match");
+		else
+			accData.remove(accNum);
+		// System.out.println("Transaction ignored. Delete conditions not met");
 	}
 
 	// withdraws money from relevant account
@@ -101,7 +110,8 @@ public class TransactionProcessor {
 	// terminates program when error encountered
 	private static void crash(String msg) {
 		System.out.println(msg);
-		//System.exit(1);
+		crash_val = true;
+		// System.exit(1);
 	}
 
 }
