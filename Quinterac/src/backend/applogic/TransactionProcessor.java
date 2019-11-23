@@ -66,7 +66,6 @@ public class TransactionProcessor {
 			crash("Transaction ignored. Account name does not match");
 		else
 			accData.remove(accNum);
-		// System.out.println("Transaction ignored. Delete conditions not met");
 	}
 
 	// withdraws money from relevant account
@@ -111,7 +110,6 @@ public class TransactionProcessor {
 	private static void crash(String msg) {
 		System.out.println(msg);
 		crash_val = true;
-		// System.exit(1);
 	}
 
 }
