@@ -15,6 +15,7 @@ public class Backend {
 		HashMap<String, Account> accData = FileHandler.readOldMasterFile(oldMaster);
 		ArrayList<String[]> transactionFile = FileHandler.readTransactionSummaryFile(transactionSummaryFile);
 		accData = TransactionProcessor.executeTransactions(accData, transactionFile);
-		FileHandler.writeNewFiles(accData, oldMaster, "../ValidAccList.txt");
+		//FileHandler.writeNewFiles(accData, oldMaster, "../ValidAccList.txt");
+		FileHandler.writeNewFiles(accData, oldMaster, "./ValidAccList.txt");
 	}
 }
