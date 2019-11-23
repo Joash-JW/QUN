@@ -5,8 +5,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -139,10 +137,9 @@ public class AppTest {
 		for (int i = 0; i < lines.length; ++i)
 			assertEquals(expected_master_acc.get(i), lines[i]);
 
-		Path currentDir = Paths.get(".");
-		String parentPath = currentDir.getParent().toAbsolutePath().toString();
+		String dir = System.getProperty("user.dir");
 		List<String> lines2 = new ArrayList<String>();
-		Scanner file_valid_acc = new Scanner(new File(parentPath + "\\src\\ValidAccList.txt"));
+		Scanner file_valid_acc = new Scanner(new File(dir + "\\src\\ValidAccList.txt"));
 		while (file_valid_acc.hasNextLine()) {
 			lines2.add(file_valid_acc.nextLine());
 		}
