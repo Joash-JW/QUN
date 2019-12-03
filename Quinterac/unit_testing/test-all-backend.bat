@@ -1,4 +1,5 @@
 ::compile mvn
+CALL cd ..
 CALL mvn compile
 
 ::to go to a test directly
