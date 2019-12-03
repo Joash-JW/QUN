@@ -12,6 +12,7 @@ import backend.data.Account;
 public class Backend {
 	// method to start backend program
 	public static void mainBackend(String oldMaster, String transactionSummaryFile) {
+		FileHandler.mergeTransactionFiles(transactionSummaryFile);
 		HashMap<String, Account> accData = FileHandler.readOldMasterFile(oldMaster);
 		ArrayList<String[]> transactionFile = FileHandler.readTransactionSummaryFile(transactionSummaryFile);
 		accData = TransactionProcessor.executeTransactions(accData, transactionFile);

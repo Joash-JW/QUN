@@ -81,4 +81,19 @@ public class FileHandler {
 			return transactionFile;
 		}
 	}
+
+	public static void mergeTransactionFiles(String mergedTransactionFile) {
+		File directory = new File("../../TransactionFiles");
+		//File[] transactionFiles = directory.listFiles();
+		try {
+			PrintWriter out = new PrintWriter(new FileWriter(mergedTransactionFile));
+			for (File file : directory.listFiles()) {
+				Scanner s = new Scanner(file);
+				while (s.hasNextLine()) {
+					out.println(s.nextLine());
+				}
+			}
+			out.close();
+		} catch (IOException e) {System.out.println(e);}
+	}
 }
