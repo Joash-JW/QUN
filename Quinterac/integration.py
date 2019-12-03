@@ -12,6 +12,6 @@ def runJava():
 
 t = threading.Thread(target=runJava, args=())
 t.start()
-time.sleep(3) # important for race conditions
+time.sleep(2) # important for race conditions
 pyautogui.write("login")
 pyautogui.press("enter")
