@@ -23,11 +23,10 @@ pyautogui.write("machine")
 pyautogui.press("enter")
 pyautogui.write("deposit")
 pyautogui.press("enter")
-pyautogui.write("")//find a user account 
+pyautogui.write("1234567")
 pyautogui.press("enter")
 pyautogui.write("1500")
 pyautogui.press("enter")
-//to write
 pyautogui.write("logout")
 pyautogui.press("enter")
 
@@ -36,7 +35,14 @@ t.start()
 time.sleep(1) # important for race conditions
 pyautogui.write("login")
 pyautogui.press("enter")
-//to write
+pyautogui.write("machine")
+pyautogui.press("enter")
+pyautogui.write("deposit")
+pyautogui.press("enter")
+pyautogui.write("1234568")
+pyautogui.press("enter")
+pyautogui.write("2500")
+pyautogui.press("enter")
 pyautogui.write("logout")
 pyautogui.press("enter")
 
@@ -45,7 +51,14 @@ t.start()
 time.sleep(1) # important for race conditions
 pyautogui.write("login")
 pyautogui.press("enter")
-//te write
+pyautogui.write("agent")
+pyautogui.press("enter")
+pyautogui.write("deposit")
+pyautogui.press("enter")
+pyautogui.write("1234567")
+pyautogui.press("enter")
+pyautogui.write("8000")
+pyautogui.press("enter")
 pyautogui.write("logout")
 pyautogui.press("enter")
 
