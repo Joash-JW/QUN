@@ -3,7 +3,7 @@ import time
 import threading
 import pyautogui
 
-print("Integration Testing...")
+print("Integration Testing (Day 1) ...")
 os.system("mvn compile")
 os.chdir("./target/classes")
 

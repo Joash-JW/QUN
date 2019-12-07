@@ -3,7 +3,7 @@ import time
 import threading
 import pyautogui
 
-print("Integration Testing...")
+print("Integration Testing (Day 3) ...")
 os.system("mvn compile")
 os.chdir("./target/classes")
 
@@ -21,16 +21,14 @@ pyautogui.write("login")
 pyautogui.press("enter")
 pyautogui.write("machine")
 pyautogui.press("enter")
-
-
+# first transfer (invalid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234567")
 pyautogui.press("enter")
 pyautogui.write("1500")
 pyautogui.press("enter")
-
-
+# second transfer (invalid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234567")
@@ -39,8 +37,7 @@ pyautogui.write("1234568")
 pyautogui.press("enter")
 pyautogui.write("999999999")
 pyautogui.press("enter")
-
-
+# third transfer (valid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234567")
@@ -49,7 +46,7 @@ pyautogui.write("1234568")
 pyautogui.press("enter")
 pyautogui.write("0")
 pyautogui.press("enter")
-
+# logout
 pyautogui.write("logout")
 pyautogui.press("enter")
 
@@ -60,16 +57,14 @@ pyautogui.write("login")
 pyautogui.press("enter")
 pyautogui.write("machine")
 pyautogui.press("enter")
-
-
+# first transfer (invalid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234568")
 pyautogui.press("enter")
 pyautogui.write("2500")
 pyautogui.press("enter")
-
-
+# logout
 pyautogui.write("logout")
 pyautogui.press("enter")
 
@@ -80,21 +75,23 @@ pyautogui.write("login")
 pyautogui.press("enter")
 pyautogui.write("agent")
 pyautogui.press("enter")
-
+# first transfer (invalid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234569")
 pyautogui.press("enter")
 pyautogui.write("8000")
 pyautogui.press("enter")
-
+# second transfer (invalid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234569")
 pyautogui.press("enter")
 pyautogui.write("1234569")
 pyautogui.press("enter")
-
+pyautogui.write("0")
+pyautogui.press("enter")
+# third transfer (valid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234568")
@@ -103,7 +100,7 @@ pyautogui.write("1234569")
 pyautogui.press("enter")
 pyautogui.write("11000")
 pyautogui.press("enter")
-
+# fourth transfer (valid)
 pyautogui.write("transfer")
 pyautogui.press("enter")
 pyautogui.write("1234569")
@@ -112,7 +109,7 @@ pyautogui.write("1234567")
 pyautogui.press("enter")
 pyautogui.write("0")
 pyautogui.press("enter")
-
+# logout
 pyautogui.write("logout")
 pyautogui.press("enter")
 

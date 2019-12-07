@@ -1,19 +1,20 @@
 //the objective of this class is to manage all transfer operations and exceptions
 
 package frontend.applogic;
-import main.Quinterac;
+
 import frontend.exceptions.NotLoggedInException;
+import main.Quinterac;
 
 public class TransferMgr {
-	//method to perform transfer operation
+	// method to perform transfer operation
 	public static void transfer() {
 		try {
 			if (!LoginMgr.isLoggedIn()) {
 				throw new NotLoggedInException();
 			}
 
-			//Scanner s = new Scanner(System.in);
-			System.out.println("Enter account number: ");
+			// Scanner s = new Scanner(System.in);
+			System.out.println("Enter account number to transfer to: ");
 			String accNum = "";
 			if (Quinterac.s.hasNextLine())
 				accNum = Quinterac.s.nextLine();
@@ -22,12 +23,12 @@ public class TransferMgr {
 				System.out.println("Please enter a valid account number");
 				return;
 			}
-			
-			System.out.println("Enter account number to accept your transfer: ");
+
+			System.out.println("Enter account number to transfer from: ");
 			String accNumB = "";
 			if (Quinterac.s.hasNextLine())
 				accNumB = Quinterac.s.nextLine();
-			
+
 			if (!ValidAccListMgr.checkAccNumExist(accNumB)) {
 				System.out.println("Please enter a valid account number");
 				return;
@@ -37,7 +38,7 @@ public class TransferMgr {
 			int amount = 0;
 			if (Quinterac.s.hasNextInt())
 				amount = Integer.parseInt(Quinterac.s.nextLine());
-			
+
 			String modeName = LoginMgr.checkMode();
 			if (modeName.equals("machine")) {
 				atmCheckTransferValid(accNum, amount, accNumB);
@@ -50,10 +51,10 @@ public class TransferMgr {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
 
-	//method to check if transfer amount is valid in machine mode
+	// method to check if transfer amount is valid in machine mode
 	public static void atmCheckTransferValid(String accNum, int amount, String accNumB) {
 		try {
 			if (amount >= 0 && amount <= 1000000) {
@@ -73,7 +74,7 @@ public class TransferMgr {
 
 	}
 
-	//method to check if transfer amount is valid in agent mode
+	// method to check if transfer amount is valid in agent mode
 	public static void agentCheckTransferValid(String accNum, int amount, String accNumB) {
 		try {
 			if (amount >= 0 && amount <= 99999999) {

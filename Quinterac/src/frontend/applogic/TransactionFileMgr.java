@@ -75,9 +75,17 @@ public class TransactionFileMgr {
 
 			for (int i = 0; i < transactionList.size(); i++) {
 				TransactionHistory t = transactionList.get(i);
-				String toBePrinted = t.getTransactionCode() + " " + t.getFirstAccNum() + " " + t.getAmount() + " "
-						+ t.getSecondAccNum() + " " + t.getAccName();
-				out.println(toBePrinted);
+				if (Integer.valueOf(t.getAmount()) < 100) {
+					String toBePrinted = t.getTransactionCode() + " " + t.getFirstAccNum() + " "
+							+ String.format("%03d", Integer.valueOf(t.getAmount())) + " " + t.getSecondAccNum() + " "
+							+ t.getAccName();
+					out.println(toBePrinted);
+				} else {
+					String toBePrinted = t.getTransactionCode() + " " + t.getFirstAccNum() + " " + t.getAmount() + " "
+							+ t.getSecondAccNum() + " " + t.getAccName();
+					out.println(toBePrinted);
+				}
+
 			}
 			out.println("EOS 0000000 000 0000000 ***");
 
