@@ -1,4 +1,6 @@
 # QUN
+[![Github Tag](https://img.shields.io/github/v/tag/joash-jw/QUN)](https://github.com/Joash-JW/QUN/releases/tag/v6.1) [![Last Commit](https://img.shields.io/github/last-commit/joash-jw/QUN)]() [![Contributors](https://img.shields.io/github/contributors/joash-jw/QUN)]() [![License: MIT](https://img.shields.io/github/license/joash-jw/QUN)](https://opensource.org/licenses/MIT)
+
 Queen's University CISC/CMPE 327 Project - Fall 2019 Semester
 
 ### QUN Members
